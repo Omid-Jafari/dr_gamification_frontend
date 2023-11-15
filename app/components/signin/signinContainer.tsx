@@ -1,7 +1,6 @@
 "use client";
 
 import { RootState } from "@/app/redux/store";
-import ModalContainer from "../modalContainer";
 import { useSelector, useDispatch } from "react-redux";
 import { assignUser } from "@/app/redux/user";
 import { useFormik } from "formik";
@@ -14,6 +13,7 @@ import { useMutation, useQuery } from "react-query";
 import { signinUser, userData } from "@/app/api/ApiClient";
 import { error } from "console";
 import toast from "react-hot-toast";
+import ModalContainer from "../common/modalContainer";
 
 const SigninContainer = () => {
   const dispatch = useDispatch();
@@ -65,17 +65,15 @@ const SigninContainer = () => {
     <FirstSigninSection
       key="FirstSigninChapterKey"
       handleModal={handleModal}
-      activeSection={activeSection}
     />,
     <ThirdSigninSection
       key="secondSigninChapterKey"
       handleModal={handleModal}
-      activeSection={activeSection}
     />,
     <ForthSigninSection
       key="secondSigninChapterKey"
       handleModal={handleModal}
-      activeSection={activeSection}
+      isLoading={getUserDataQuery?.isLoading}
     />,
   ];
 

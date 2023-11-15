@@ -29,7 +29,7 @@ const FirstSigninSection = (props: any) => {
     >
       <fieldset className="relative">
         <input
-          className="bg-[#fff] outline-none w-full h-[50px] px-4 placeholder:text-[#93999D] rounded-[32px] shadow-light indent-10 placeholder:text-right text-left"
+          className="bg-[#fff] outline-none w-full h-[50px] px-4 placeholder:text-[#93999D] rounded-[32px] shadow-light indent-10"
           placeholder="شماره همراه"
           name="phoneNumber"
           onChange={formik.handleChange}

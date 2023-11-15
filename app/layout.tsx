@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "./header";
-import SigninContainer from "./components/common/signin/signinContainer";
+import SigninContainer from "./components/signin/signinContainer";
 import { Providers } from "./redux/provider";
 import { Toaster } from "react-hot-toast";
 

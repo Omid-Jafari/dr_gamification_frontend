@@ -1,10 +1,15 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
+import Loading from "../common/loading";
 
-const ForthSigninSection = (props: any) => {
-  const { handleModal } = props;
+const ForthSigninSection = (props: {
+  handleModal: any;
+  isLoading: Boolean;
+}) => {
+  const { handleModal, isLoading } = props;
   const [policeMale, setPoliceMale] = useState(1);
+  console.log("isLoading", isLoading);
   return (
     <form
       key="secondSigninChapterKey"
@@ -41,7 +46,7 @@ const ForthSigninSection = (props: any) => {
         onClick={() => handleModal({ policeMale }, true)}
         className="form_btn shadow-light flex items-center justify-center gap-1 w-full"
       >
-        شروع بازی
+        {isLoading ? <Loading /> : "شروع بازی"}
       </button>
     </form>
   );

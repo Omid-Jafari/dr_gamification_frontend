@@ -9,7 +9,7 @@ export default function Home() {
         href="/transportation"
       >
         <img
-          src="/transportation.svg"
+          src="/transportation.png"
           alt="transportation icon"
           className="w-full h-auto animate-prjj"
         />
