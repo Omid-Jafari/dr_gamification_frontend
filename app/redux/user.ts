@@ -7,10 +7,11 @@ export interface UserFriends {
   score: number;
 }
 export interface User {
-  id: number;
+  _id: number;
   name: string;
   phoneNumber: number;
   score: number;
+  policeMale: number;
   friends: UserFriends[];
 }
 export interface UserState {
@@ -18,7 +19,14 @@ export interface UserState {
 }
 
 const initialState: UserState = {
-  user: { id: 0, name: "", phoneNumber: 0, score: 0, friends: [] },
+  user: {
+    _id: 0,
+    name: "",
+    phoneNumber: 0,
+    score: 0,
+    friends: [],
+    policeMale: 0,
+  },
 };
 
 export const userSlice = createSlice({
