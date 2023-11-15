@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Header from "./header";
 import SigninContainer from "./components/common/signin/signinContainer";
 import { Providers } from "./redux/provider";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,6 +43,7 @@ export default function RootLayout({
             </>
           </Providers>
         </div>
+        <Toaster />
       </body>
     </html>
   );
