@@ -6,62 +6,87 @@ import { useSelector, useDispatch } from "react-redux";
 import { assignUser } from "@/app/redux/user";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import FirstSigninSection from "./firstSigninSection";
+import { useState } from "react";
+import ThirdSigninSection from "./thirdSigninSection";
+import ForthSigninSection from "./forthSigninSection";
+import { useMutation, useQuery } from "react-query";
+import { signinUser, userData } from "@/app/api/ApiClient";
+import { error } from "console";
+import toast from "react-hot-toast";
 
 const SigninContainer = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state: RootState) => state.user);
-  const handleModal = () => {
-    dispatch(
-      assignUser({
-        user: {
-          id: 84884,
-          name: "samad",
-          phoneNumber: 546544,
-          score: 45,
-          friends: [],
-        },
-      })
-    );
+  const [activeSection, setActiveSection] = useState(0);
+  const [creatingUser, setCreatingUser] = useState<object>();
+  const localStorageId =
+    typeof window !== "undefined" ? localStorage.getItem("UserId") : null;
+  const getUserDataQuery = useQuery({
+    queryKey: ["getUserDataQuery"],
+    queryFn: () => userData(localStorageId),
+    refetchOnWindowFocus: false,
+    enabled: !!localStorageId,
+    onSuccess: (data) => {
+      dispatch(
+        assignUser({
+          user: data?.data,
+        })
+      );
+    },
+    onError: (error) => {
+      localStorage.removeItem("UserId");
+    },
+  });
+  const addUserMutation = useMutation({
+    mutationKey: ["addUserMutation"],
+    mutationFn: signinUser,
+    onSuccess: (res) => {
+      dispatch(
+        assignUser({
+          user: res?.data,
+        })
+      );
+      localStorage.setItem("UserId", res?.data?._id);
+    },
+    onError: () => {},
+  });
+
+  const handleModal = (data: any, isLast = false) => {
+    if (isLast) {
+      addUserMutation.mutate({ ...creatingUser, ...data });
+    } else {
+      setActiveSection(activeSection + 1);
+    }
+    setCreatingUser((prev: object) => ({ ...prev, ...data }));
   };
 
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      phoneNumber: "",
-    },
-    validationSchema: Yup.object({
-      name: Yup.string().required("لطفا نام را وارد کنید"),
-      phoneNumber: Yup.string()
-        .required("لطفا شماره موبایل را وارد کنید")
-        .matches(
-          /^(\+98?)?{?(0?9[0-9]{9,9}}?)$/,
-          "الگوی شماره موبایل وارد شده اشتباه می باشد. شماره موبایل باید 11 رقمی باشد و با 09 یا +98 شروع شود"
-        ),
-    }),
+  const signinFormSections = [
+    <FirstSigninSection
+      key="FirstSigninChapterKey"
+      handleModal={handleModal}
+      activeSection={activeSection}
+    />,
+    <ThirdSigninSection
+      key="secondSigninChapterKey"
+      handleModal={handleModal}
+      activeSection={activeSection}
+    />,
+    <ForthSigninSection
+      key="secondSigninChapterKey"
+      handleModal={handleModal}
+      activeSection={activeSection}
+    />,
+  ];
 
-    onSubmit: (data) => {},
-  });
   return (
-    <ModalContainer open={user.id === 0}>
+    <ModalContainer
+      open={!localStorageId || localStorageId === "undefined" || user._id === 0}
+    >
       <div className="w-full h-[100vh] flex justify-center items-center">
-        <form className="w-[80%]">
-          <input
-            className="bg-[#fff] items-center flex gap-2 outline-none w-full h-[50px] px-4 placeholder:text-[#93999D] rounded-[32px] shadow-light"
-            placeholder="شماره همراه"
-            name="phoneNumber"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.phoneNumber}
-          />
-          {formik.errors.phoneNumber && formik.touched.phoneNumber && (
-            <div className="text-red-600 w-full text-sm px-3 py-2">
-              {formik.errors.phoneNumber}
-            </div>
-          )}
-          <button type="button" onClick={handleModal}>
-            handle
-          </button>
-        </form>
+        {signinFormSections?.map(
+          (comp, index) => index === activeSection && comp
+        )}
       </div>
     </ModalContainer>
   );
