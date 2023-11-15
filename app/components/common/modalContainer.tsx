@@ -1,7 +1,7 @@
 "use client";
 
 const ModalContainer = ({
-  open,
+  open = false,
   children,
 }: {
   open: boolean;
