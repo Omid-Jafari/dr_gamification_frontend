@@ -40,3 +40,10 @@ body {
   font-weight: bold;
   color: #fff;
 }
+.gradient-fade {
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 100%),
+    rgba(255, 255, 255, 0%)
+  );
+}
