@@ -6,7 +6,7 @@ import { assignUser } from "@/app/redux/user";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import FirstSigninSection from "./firstSigninSection";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ThirdSigninSection from "./thirdSigninSection";
 import ForthSigninSection from "./forthSigninSection";
 import { useMutation, useQuery } from "react-query";
@@ -22,6 +22,11 @@ const SigninContainer = () => {
   const [creatingUser, setCreatingUser] = useState<object>();
   const localStorageId =
     typeof window !== "undefined" ? localStorage.getItem("UserId") : null;
+  const [signOpen, setSignOpen] = useState(false);
+  useEffect(() => {
+    setSignOpen(!localStorageId);
+  }, [localStorageId]);
+
   const getUserDataQuery = useQuery({
     queryKey: ["getUserDataQuery"],
     queryFn: () => userData(localStorageId),
@@ -33,9 +38,11 @@ const SigninContainer = () => {
           user: data?.data,
         })
       );
+      setSignOpen(false);
     },
     onError: (error) => {
       localStorage.removeItem("UserId");
+      setSignOpen(true);
     },
   });
   const addUserMutation = useMutation({
@@ -76,10 +83,10 @@ const SigninContainer = () => {
       isLoading={getUserDataQuery?.isLoading}
     />,
   ];
-
   return (
     <ModalContainer
-      open={!localStorageId || localStorageId === "undefined" || user._id === 0}
+      // open={!localStorageId || localStorageId === "undefined" || user._id === 0}
+      open={signOpen}
     >
       <div className="w-full h-[100vh] flex justify-center items-center">
         {signinFormSections?.map(

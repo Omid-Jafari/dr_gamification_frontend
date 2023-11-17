@@ -13,6 +13,7 @@ export interface User {
   score: number;
   policeMale: number;
   friends: UserFriends[];
+  transFirstQuest: boolean;
 }
 export interface UserState {
   user: User;
@@ -26,6 +27,7 @@ const initialState: UserState = {
     score: 0,
     friends: [],
     policeMale: 0,
+    transFirstQuest: false,
   },
 };
 
@@ -36,10 +38,13 @@ export const userSlice = createSlice({
     assignUser: (state, action: PayloadAction<UserState>) => {
       state.user = { ...action.payload.user };
     },
+    updateUserScore: (state, action: PayloadAction<any>) => {
+      state.user = { ...state.user, ...action.payload };
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { assignUser } = userSlice.actions;
+export const { assignUser, updateUserScore } = userSlice.actions;
 
 export default userSlice.reducer;

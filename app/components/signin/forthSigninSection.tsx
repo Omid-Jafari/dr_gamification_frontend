@@ -9,7 +9,7 @@ const ForthSigninSection = (props: {
 }) => {
   const { handleModal, isLoading } = props;
   const [policeMale, setPoliceMale] = useState(1);
-  console.log("isLoading", isLoading);
+
   return (
     <form
       key="secondSigninChapterKey"
