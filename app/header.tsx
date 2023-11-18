@@ -5,11 +5,31 @@ import { useSelector } from "react-redux";
 import { RootState } from "./redux/store";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const { user } = useSelector((state: RootState) => state.user);
   const router = useRouter();
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
+  const getTime = () => {
+    const now = new Date().getTime();
+    const createdTime = new Date(user.createdAt).getTime();
+    let distance;
+    distance = now - createdTime;
+    setMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+    setSeconds(Math.floor((distance % (1000 * 60)) / 1000));
+    // if (seconds < -1) {
+    //   localStorage.removeItem("previousPrices");
+    //   localStorage.removeItem("expirePreviousPrices");
+    // }
+  };
+  useEffect(() => {
+    const interval = setInterval(() => getTime(), 1000);
+
+    return () => clearInterval(interval);
+  }, [getTime]);
   return (
     <div className="w-full flex items-center justify-between p-3 sm:p-5 absolute top-0 left-0">
       <button onClick={() => window.location.pathname !== "/" && router.back()}>
@@ -23,7 +43,7 @@ const Header = () => {
       </button>
       <div className="relative">
         <span className="absolute z-10 top-1/2 -translate-y-1/2 -translate-x-1/2 left-2/3 text-[#1E7BD1]">
-          22:55
+          {minutes || seconds ? minutes + ":" + seconds : ""}
         </span>
         <img src="/header/timer.png" alt="" className="h-8" />
       </div>
