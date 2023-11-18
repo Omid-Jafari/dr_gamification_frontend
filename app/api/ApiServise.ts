@@ -7,6 +7,9 @@ const useAxios = axios.create({
 
 useAxios.interceptors.request.use(
   (config) => {
+    // (config.headers["Access-Control-Allow-Origin"] = "*"),
+    //   (config.headers["Content-Type"] = "application/json");
+
     return config;
   },
   (error) => {
@@ -16,7 +19,7 @@ useAxios.interceptors.request.use(
 
 useAxios.interceptors.response.use(
   (response) => {
-    if (response.data.message != "") toast.success(response.data.message);
+    // if (response.data.message != "") toast.success(response.data.message);
     return response;
   },
   (error) => {
