@@ -47,3 +47,27 @@ body {
     rgba(255, 255, 255, 0%)
   );
 }
+.box_shadow_gen {
+  -webkit-box-shadow: inset 0px -9px 0px -1px #8b96a1;
+  box-shadow: inset 0px -9px 0px -1px #8b96a1;
+  border-radius: 21px;
+}
+.record_table_rows > div {
+  position: relative;
+}
+.record_table_rows > div::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url(/records/Vector.png);
+  background-size: 100% auto;
+  width: 100%;
+  height: 8px;
+}
+.record_table_rows > div:nth-child(odd) {
+  background-color: #c0272d;
+}
+.record_table_rows > div:nth-child(even) {
+  background-color: #ad1c22;
+}
