@@ -14,6 +14,8 @@ export interface User {
   policeMale: number;
   friends: UserFriends[];
   transFirstQuest: boolean;
+  createdAt: string;
+  updatedAt: string;
 }
 export interface UserState {
   user: User;
@@ -28,6 +30,8 @@ const initialState: UserState = {
     friends: [],
     policeMale: 0,
     transFirstQuest: false,
+    createdAt: "",
+    updatedAt: "",
   },
 };
 
