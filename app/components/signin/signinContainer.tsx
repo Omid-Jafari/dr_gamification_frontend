@@ -38,6 +38,7 @@ const SigninContainer = () => {
           user: data?.data,
         })
       );
+      toast.success(`${data?.data?.name} خوش آمدید`);
       setSignOpen(false);
     },
     onError: (error) => {
