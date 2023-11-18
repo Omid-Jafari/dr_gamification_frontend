@@ -33,9 +33,9 @@ export default function RootLayout({
               <img
                 src="/homePageBG.jpg"
                 alt="homePageBG icon"
-                className={`w-full sm:w-auto h-[100vh] sm:object-contain object-fill invisible`}
+                className={`w-full sm:w-auto h-[100vh] sm:object-contain object-fill`}
               />
-              <div className="absolute w-full top-0 left-0 opacity-80">
+              <div className="absolute w-full top-0 left-0">
                 <Header />
 
                 {children}

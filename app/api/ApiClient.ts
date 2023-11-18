@@ -13,6 +13,9 @@ import useAxios from "./ApiServise";
 //   return useAxios.get(`/admins${queryArray === "" ? "" : `?${queryArray}`}`);
 // };
 
+export const usersData = () => {
+  return useAxios.get(`/user`);
+};
 export const userData = (id: string | null) => {
   return useAxios.get(`/user/${id}`);
 };

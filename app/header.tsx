@@ -6,6 +6,7 @@ import { RootState } from "./redux/store";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Header = () => {
   const { user } = useSelector((state: RootState) => state.user);
@@ -30,6 +31,7 @@ const Header = () => {
 
     return () => clearInterval(interval);
   }, [getTime]);
+
   return (
     <div className="w-full flex items-center justify-between p-3 sm:p-5 absolute top-0 left-0">
       <button onClick={() => window.location.pathname !== "/" && router.back()}>
@@ -38,9 +40,9 @@ const Header = () => {
       <button onClick={() => {}}>
         <img src="/Sound.svg" alt="" />
       </button>
-      <button onClick={() => {}}>
+      <Link href={"/records"}>
         <img src="/Group.svg" alt="" />
-      </button>
+      </Link>
       <div className="relative">
         <span className="absolute z-10 top-1/2 -translate-y-1/2 -translate-x-1/2 left-2/3 text-[#1E7BD1]">
           {minutes || seconds ? minutes + ":" + seconds : ""}

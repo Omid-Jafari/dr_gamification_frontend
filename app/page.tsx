@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="w-full h-[100vh] bg-[url(/homePageBG.jpg)] bg-no-repeat sm:bg-[length:auto_100%] bg-[length:100%_100%]">
+    <main className="w-full h-[100vh]">
       <Link
         className="absolute top-[15%] w-[20%] left-[40%]"
         href="/transportation"
