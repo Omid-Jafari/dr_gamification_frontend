@@ -8,13 +8,27 @@ import Loading from "./loading";
 import GuideModalContainer from "./guideModalContainer";
 
 const GuideModal = (props: any, ref: any) => {
+  const { user } = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [guidetxt, setGuidetxt] = useState<any>();
+  const updateUserMutation = useMutation({
+    mutationKey: ["updateUserMutation"],
+    mutationFn: updateUser,
+    onSuccess: () => {
+      dispatch(updateUserScore({ score: user.score - 85 }));
+    },
+    onError: () => {},
+  });
 
   useImperativeHandle(ref, () => ({
     openModal(body: any) {
       setOpen(true);
       setGuidetxt(body);
+      updateUserMutation.mutate({
+        _id: user._id,
+        body: { score: user.score - 85 },
+      });
     },
   }));
 

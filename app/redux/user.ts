@@ -4,6 +4,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface UserFriends {
   name: string;
+  avatarSrc: string;
   score: number;
 }
 export interface User {
