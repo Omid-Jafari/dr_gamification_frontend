@@ -6,19 +6,19 @@ const ThirdSigninSection = (props: any) => {
   const formik = useFormik({
     initialValues: {
       FFriendName: "",
-      fAvatarSrc: "",
+      fAvatarSrc: "sx",
       SFriendName: "",
-      sAvatarSrc: "",
+      sAvatarSrc: "xs",
       TFriendName: "",
-      tAvatarSrc: "",
+      tAvatarSrc: "xs",
     },
     validationSchema: Yup.object({
       FFriendName: Yup.string().required("لطفا نام را وارد کنید"),
-      fAvatarSrc: Yup.string().required("لطفا عکس را انتخاب کنید"),
+      // fAvatarSrc: Yup.string().required("لطفا عکس را انتخاب کنید"),
       SFriendName: Yup.string().required("لطفا نام را وارد کنید"),
-      sAvatarSrc: Yup.string().required("لطفا عکس را انتخاب کنید"),
+      // sAvatarSrc: Yup.string().required("لطفا عکس را انتخاب کنید"),
       TFriendName: Yup.string().required("لطفا نام را وارد کنید"),
-      tAvatarSrc: Yup.string().required("لطفا عکس را انتخاب کنید"),
+      // tAvatarSrc: Yup.string().required("لطفا عکس را انتخاب کنید"),
     }),
     onSubmit: (data) => {
       handleModal({
@@ -55,11 +55,11 @@ const ThirdSigninSection = (props: any) => {
             {formik.errors.FFriendName}
           </div>
         )}
-        {formik.errors.fAvatarSrc && formik.touched.fAvatarSrc && (
+        {/* {formik.errors.fAvatarSrc && formik.touched.fAvatarSrc && (
           <div className="text-red-600 w-full text-sm px-3 py-2">
             {formik.errors.fAvatarSrc}
           </div>
-        )}
+        )} */}
       </fieldset>
       <fieldset className="relative">
         <input
@@ -80,11 +80,11 @@ const ThirdSigninSection = (props: any) => {
             {formik.errors.SFriendName}
           </div>
         )}
-        {formik.errors.sAvatarSrc && formik.touched.sAvatarSrc && (
+        {/* {formik.errors.sAvatarSrc && formik.touched.sAvatarSrc && (
           <div className="text-red-600 w-full text-sm px-3 py-2">
             {formik.errors.sAvatarSrc}
           </div>
-        )}
+        )} */}
       </fieldset>
       <fieldset className="relative">
         <input
@@ -105,11 +105,11 @@ const ThirdSigninSection = (props: any) => {
             {formik.errors.TFriendName}
           </div>
         )}
-        {formik.errors.tAvatarSrc && formik.touched.tAvatarSrc && (
+        {/* {formik.errors.tAvatarSrc && formik.touched.tAvatarSrc && (
           <div className="text-red-600 w-full text-sm px-3 py-2">
             {formik.errors.tAvatarSrc}
           </div>
-        )}
+        )} */}
       </fieldset>
       <button
         type="button"

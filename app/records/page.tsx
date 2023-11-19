@@ -4,10 +4,12 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import { usersData } from "../api/ApiClient";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Records = () => {
   const [open, setOpen] = useState(true);
   const [users, setUsers] = useState([]);
+  const router = useRouter();
 
   const getUsersDataQuery = useQuery({
     queryKey: ["getUsersDataQuery"],
@@ -18,7 +20,12 @@ const Records = () => {
     },
     onError: (error) => {},
   });
-  console.log("users", users);
+  const closeRecordFunc = () => {
+    setOpen(false);
+    setTimeout(() => {
+      router.push("/");
+    }, 1500);
+  };
 
   return (
     <div
@@ -31,6 +38,17 @@ const Records = () => {
           open ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
         }`}
       >
+        <button
+          type="button"
+          className="absolute top-[7.5%] right-[3%]"
+          onClick={closeRecordFunc}
+        >
+          <img
+            className="w-10 h-10 sm:w-12 sm:h-12"
+            src="/questions/close.png"
+            alt=""
+          />
+        </button>
         <p className="text-[28px] font-bold pb-3">جدول امتیازات</p>
         <img
           src="/records/recordsLogo.png"
@@ -46,7 +64,8 @@ const Records = () => {
             <span className="col-span-2">امتیاز</span>
             <span className="col-span-4">نشان</span>
           </div>
-          <div className="w-full flex flex-col px-3 record_table_rows text-white text-xs">
+          <div className="w-full flex flex-col px-3 record_table_rows text-white text-xs max-h-[450px] overflow-y-auto sm:max-h-max">
+            <div className="table_row_Seperator"></div>
             {users?.map((user: any, index) => (
               <div
                 key={`userRecords${index}`}

@@ -52,6 +52,42 @@ body {
   box-shadow: inset 0px -9px 0px -1px #8b96a1;
   border-radius: 21px;
 }
+.record_table_rows {
+  position: relative;
+}
+.record_table_rows::after {
+  content: "";
+  background-image: url(/records/Vectorhorizental.png);
+  background-size: auto 100%;
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  top: 0;
+  right: 9.1%;
+}
+.record_table_rows::before {
+  content: "";
+  background-image: url(/records/Vectorhorizental.png);
+  background-size: auto 100%;
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  top: 0;
+  right: 43.45%;
+  z-index: 10;
+}
+.table_row_Seperator {
+  background-image: url(/records/Vectorhorizental.png);
+  background-color: rgba(255, 255, 255, 0) !important;
+  background-size: auto 100%;
+  position: absolute !important;
+  height: 100%;
+  width: 10px;
+  top: 0;
+  right: 60.63%;
+  z-index: 10;
+}
+
 .record_table_rows > div {
   position: relative;
 }
