@@ -7,17 +7,23 @@ import ConfirmModalContainer from "./confirmModalContainer";
 import { updateUserScore } from "@/app/redux/user";
 import Loading from "./loading";
 
-const QuestionModal = (props: any, ref: any) => {
+const ConfirmModal = ({ openWheelRef }: { openWheelRef: any }, ref: any) => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-  const [body, setBody] = useState<any>();
+  const [confirmBody, setConfirmBody] = useState<any>();
+  const [whichQuest, setWhichQuest] = useState("");
   const { user } = useSelector((state: RootState) => state.user);
 
   const updateUserMutation = useMutation({
     mutationKey: ["updateUserMutation"],
     mutationFn: updateUser,
     onSuccess: () => {
-      dispatch(updateUserScore({ ...body }));
+      dispatch(
+        updateUserScore({
+          ...confirmBody,
+          score: user.score + confirmBody.score,
+        })
+      );
       setOpen(false);
     },
     onError: () => {},
@@ -25,7 +31,8 @@ const QuestionModal = (props: any, ref: any) => {
   useImperativeHandle(ref, () => ({
     openModal(body: any) {
       setOpen(true);
-      setBody(body);
+      setConfirmBody(body.confirmBody);
+      setWhichQuest(body.whichQuest);
     },
   }));
 
@@ -35,7 +42,7 @@ const QuestionModal = (props: any, ref: any) => {
         <div
           className={`w-[80%] max-h-[80%] overflow-auto flex flex-col gap-[20px] `}
         >
-          {body?.score > 0 ? (
+          {confirmBody?.score > 0 ? (
             <p className="pb-3 text-center">
               جوابت درست بود <br /> دوست داری چی جایزه بگیری؟
             </p>
@@ -50,19 +57,29 @@ const QuestionModal = (props: any, ref: any) => {
             <button
               type="button"
               onClick={() =>
-                updateUserMutation.mutate({ _id: user._id, body: body })
+                updateUserMutation.mutate({
+                  _id: user._id,
+                  body: {
+                    ...confirmBody,
+                    score: user.score + confirmBody.score,
+                  },
+                })
               }
               className="form_btn shadow-light flex items-center justify-center gap-1 flex-grow"
             >
               {updateUserMutation.isLoading ? (
                 <Loading />
               ) : (
-                `${body?.score} سکه`
+                `${confirmBody?.score} سکه`
               )}
             </button>
             <button
               type="button"
-              onClick={() => {}}
+              onClick={() => {
+                openWheelRef({ whichQuest: whichQuest });
+                setOpen(false);
+                console.log("whichQuest", whichQuest);
+              }}
               className="form_btn shadow-light flex items-center justify-center gap-1 flex-grow"
             >
               یک دور چرخونک
@@ -74,4 +91,4 @@ const QuestionModal = (props: any, ref: any) => {
   );
 };
 
-export default forwardRef(QuestionModal);
+export default forwardRef(ConfirmModal);

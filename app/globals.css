@@ -107,3 +107,38 @@ body {
 .record_table_rows > div:nth-child(even) {
   background-color: #ad1c22;
 }
+.gTLZXx {
+  width: 13% !important;
+  top: 0 !important;
+  transform: rotate(45deg);
+}
+.bhdLno {
+  width: 73vw !important;
+  height: 73vw !important;
+}
+@media only screen and (min-width: 625px) {
+  .bhdLno {
+    width: 400px !important;
+    height: 400px !important;
+  }
+}
+/* @media only screen and (min-width: 1440px) {
+  .bhdLno {
+    width: 25vw !important;
+    height: 25vw !important;
+  }
+} */
+.spinner_btn {
+  background: rgb(12, 109, 118);
+  background: linear-gradient(
+    90deg,
+    rgba(253, 192, 0, 1) 0%,
+    rgba(253, 242, 209, 1) 80%,
+    rgba(253, 192, 0, 1) 100%
+  );
+  height: 42px;
+  border-radius: 32px;
+  box-shadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.15)";
+  font-weight: bold;
+  color: #36b7c3;
+}

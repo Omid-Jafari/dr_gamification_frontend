@@ -73,22 +73,25 @@ const QuestionModal = (
           if (data?.score0 && data?.score1 && data?.score2) {
             setOpen(false);
             openConfirmRef({
-              score: user.score + data.score0 + data.score1 + data.score2,
-              [whichQuest]: true,
-              friends: [
-                {
-                  ...user.friends[0],
-                  score: user.friends[0].score + data.score0,
-                },
-                {
-                  ...user.friends[1],
-                  score: user.friends[1].score + data.score1,
-                },
-                {
-                  ...user.friends[2],
-                  score: user.friends[2].score + data.score2,
-                },
-              ],
+              confirmBody: {
+                score: data.score0 + data.score1 + data.score2,
+                [whichQuest]: true,
+                friends: [
+                  {
+                    ...user.friends[0],
+                    score: user.friends[0].score + data.score0,
+                  },
+                  {
+                    ...user.friends[1],
+                    score: user.friends[1].score + data.score1,
+                  },
+                  {
+                    ...user.friends[2],
+                    score: user.friends[2].score + data.score2,
+                  },
+                ],
+              },
+              whichQuest: whichQuest,
             });
           }
         }, 2000);
