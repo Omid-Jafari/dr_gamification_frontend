@@ -8,60 +8,188 @@ import { useDispatch, useSelector } from "react-redux";
 
 const WheelOfFortuneComp = ({
   whichQuest,
+  fortune,
   congratsRefOpen,
   setOpen,
 }: {
   whichQuest: string;
+  fortune: boolean;
   congratsRefOpen: any;
   setOpen: any;
 }) => {
-  const data = [
-    {
-      option: "0",
-      image: { uri: "/spinner/option0.svg", offsetY: 200 },
-      style: { backgroundColor: "#FF001E", textColor: "#fff" },
-    },
-    {
-      option: "160",
-      image: { uri: "/spinner/option1.svg", offsetY: 200 },
-      style: { backgroundColor: "#00A200", textColor: "#fff" },
-    },
-    {
-      option: "30",
-      image: { uri: "/spinner/option2.svg", offsetY: 200 },
-      style: { backgroundColor: "#00AEFF", textColor: "#fff" },
-    },
-    {
-      option: "20",
-      image: { uri: "/spinner/option3.svg", offsetY: 200 },
-      style: { backgroundColor: "#FF9D00", textColor: "#fff" },
-    },
-    {
-      option: "440",
-      image: { uri: "/spinner/option4.svg", offsetY: 200 },
-      style: { backgroundColor: "#8504FF", textColor: "#fff" },
-    },
-    {
-      option: "200",
-      image: { uri: "/spinner/option5.svg", offsetY: 200 },
-      style: { backgroundColor: "#0047D0", textColor: "#fff" },
-    },
-    {
-      option: "-100",
-      image: { uri: "/spinner/option6.svg", offsetY: 200 },
-      style: { backgroundColor: "#B97100", textColor: "#fff" },
-    },
-    {
-      option: "-40",
-      image: { uri: "/spinner/option7.svg", offsetY: 200 },
-      style: { backgroundColor: "#6AD000", textColor: "#fff" },
-    },
-    {
-      option: "-80",
-      image: { uri: "/spinner/option8.svg", offsetY: 200 },
-      style: { backgroundColor: "#FFDA00", textColor: "#fff" },
-    },
-  ];
+  let data: any = [];
+  // fortune
+  //   ? data.push([
+  //       {
+  //         option: "0",
+  //         image: { uri: "/spinner/option0.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#FF001E", textColor: "#fff" },
+  //       },
+  //       {
+  //         option: "160",
+  //         image: { uri: "/spinner/option1.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#00A200", textColor: "#fff" },
+  //       },
+  //       {
+  //         option: "30",
+  //         image: { uri: "/spinner/option2.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#00AEFF", textColor: "#fff" },
+  //       },
+  //       {
+  //         option: "20",
+  //         image: { uri: "/spinner/option3.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#FF9D00", textColor: "#fff" },
+  //       },
+  //       {
+  //         option: "440",
+  //         image: { uri: "/spinner/option4.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#8504FF", textColor: "#fff" },
+  //       },
+  //       {
+  //         option: "200",
+  //         image: { uri: "/spinner/option5.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#0047D0", textColor: "#fff" },
+  //       },
+  //       {
+  //         option: "-100",
+  //         image: { uri: "/spinner/option6.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#B97100", textColor: "#fff" },
+  //       },
+  //       {
+  //         option: "-40",
+  //         image: { uri: "/spinner/option7.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#6AD000", textColor: "#fff" },
+  //       },
+  //       {
+  //         option: "-80",
+  //         image: { uri: "/spinner/option8.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#FFDA00", textColor: "#fff" },
+  //       },
+  //     ])
+  //   : data.push([
+  //       {
+  //         option: "0",
+  //         image: { uri: "/spinner/option0.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#FF001E", textColor: "#fff" },
+  //       },
+  //       {
+  //         option: "160",
+  //         image: { uri: "/spinner/option1.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#00A200", textColor: "#fff" },
+  //       },
+  //       {
+  //         option: "30",
+  //         image: { uri: "/spinner/option2.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#00AEFF", textColor: "#fff" },
+  //       },
+  //       {
+  //         option: "20",
+  //         image: { uri: "/spinner/option3.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#FF9D00", textColor: "#fff" },
+  //       },
+  //       {
+  //         option: "440",
+  //         image: { uri: "/spinner/option4.svg", offsetY: 200 },
+  //         style: { backgroundColor: "#8504FF", textColor: "#fff" },
+  //       },
+  //     ]);
+  if (fortune) {
+    data = [
+      {
+        option: "0",
+        image: { uri: "/spinner/option0.svg", offsetY: 200 },
+        style: { backgroundColor: "#FF001E", textColor: "#fff" },
+      },
+      {
+        option: "160",
+        image: { uri: "/spinner/option1.svg", offsetY: 200 },
+        style: { backgroundColor: "#00A200", textColor: "#fff" },
+      },
+      {
+        option: "30",
+        image: { uri: "/spinner/option2.svg", offsetY: 200 },
+        style: { backgroundColor: "#00AEFF", textColor: "#fff" },
+      },
+      {
+        option: "20",
+        image: { uri: "/spinner/option3.svg", offsetY: 200 },
+        style: { backgroundColor: "#FF9D00", textColor: "#fff" },
+      },
+      {
+        option: "440",
+        image: { uri: "/spinner/option4.svg", offsetY: 200 },
+        style: { backgroundColor: "#8504FF", textColor: "#fff" },
+      },
+      {
+        option: "200",
+        image: { uri: "/spinner/option5.svg", offsetY: 200 },
+        style: { backgroundColor: "#0047D0", textColor: "#fff" },
+      },
+      {
+        option: "-100",
+        image: { uri: "/spinner/option6.svg", offsetY: 200 },
+        style: { backgroundColor: "#B97100", textColor: "#fff" },
+      },
+      {
+        option: "-40",
+        image: { uri: "/spinner/option7.svg", offsetY: 200 },
+        style: { backgroundColor: "#6AD000", textColor: "#fff" },
+      },
+      {
+        option: "-80",
+        image: { uri: "/spinner/option8.svg", offsetY: 200 },
+        style: { backgroundColor: "#FFDA00", textColor: "#fff" },
+      },
+    ];
+  } else {
+    data = [
+      {
+        option: "-230",
+        image: { uri: "/deathSpinner/option0.svg", offsetY: 200 },
+        style: { backgroundColor: "#FF001E", textColor: "#fff" },
+      },
+      {
+        option: "-30",
+        image: { uri: "/deathSpinner/option1.svg", offsetY: 200 },
+        style: { backgroundColor: "#00A200", textColor: "#fff" },
+      },
+      {
+        option: "-180",
+        image: { uri: "/deathSpinner/option2.svg", offsetY: 200 },
+        style: { backgroundColor: "#00AEFF", textColor: "#fff" },
+      },
+      {
+        option: "-10",
+        image: { uri: "/deathSpinner/option3.svg", offsetY: 200 },
+        style: { backgroundColor: "#FF9D00", textColor: "#fff" },
+      },
+      {
+        option: "-40",
+        image: { uri: "/deathSpinner/option4.svg", offsetY: 200 },
+        style: { backgroundColor: "#8504FF", textColor: "#fff" },
+      },
+      {
+        option: "100",
+        image: { uri: "/deathSpinner/option5.svg", offsetY: 200 },
+        style: { backgroundColor: "#0047D0", textColor: "#fff" },
+      },
+      {
+        option: "50",
+        image: { uri: "/deathSpinner/option6.svg", offsetY: 200 },
+        style: { backgroundColor: "#B97100", textColor: "#fff" },
+      },
+      {
+        option: "160",
+        image: { uri: "/deathSpinner/option7.svg", offsetY: 200 },
+        style: { backgroundColor: "#6AD000", textColor: "#fff" },
+      },
+      {
+        option: "0",
+        image: { uri: "/deathSpinner/option8.svg", offsetY: 200 },
+        style: { backgroundColor: "#FFDA00", textColor: "#fff" },
+      },
+    ];
+  }
   const dataFacts = [
     {
       imgSrc: "/congrats/facts/fact0.svg",
