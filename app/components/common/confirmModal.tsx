@@ -76,7 +76,10 @@ const ConfirmModal = ({ openWheelRef }: { openWheelRef: any }, ref: any) => {
             <button
               type="button"
               onClick={() => {
-                openWheelRef({ whichQuest: whichQuest });
+                openWheelRef({
+                  whichQuest: whichQuest,
+                  fortune: confirmBody?.score > 0,
+                });
                 setOpen(false);
                 console.log("whichQuest", whichQuest);
               }}
