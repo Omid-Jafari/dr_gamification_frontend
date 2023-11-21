@@ -7,12 +7,19 @@ const WheelSpinnerModal = (
 ) => {
   const [open, setOpen] = useState(false);
   const [whichQuest, setWhichQuest] = useState("");
+  const [fortune, setFortune] = useState(true);
 
   useImperativeHandle(ref, () => ({
-    openModal({ whichQuest }: { whichQuest: string }) {
+    openModal({
+      whichQuest,
+      fortune,
+    }: {
+      whichQuest: string;
+      fortune: boolean;
+    }) {
       setOpen(true);
       setWhichQuest(whichQuest);
-      console.log("afasdfsdfsd", whichQuest);
+      setFortune(fortune);
     },
   }));
 
@@ -20,25 +27,41 @@ const WheelSpinnerModal = (
     <div
       className={`absolute top-0 left-0 w-full h-[100vh] z-20 overflow-hidden transition-all duration-[1s]  animate__animated ${
         open
-          ? "bg-[#57959ba7] max-h-[10000px] animate__fadeInDownBig"
-          : "bg-[#57959b00] max-h-0 animate__fadeOutUpBig"
+          ? "bg-[#57959ba7] max-h-[10000px] duration-[.7s]"
+          : "bg-[#57959b00] max-h-0 duration-[1.7s]"
       }`}
     >
       <img
-        src="/spinner/rouletteBG.png"
-        className="absolute top-[15%] left-1/2 -translate-x-1/2 w-full"
+        src="/ModalBlueBg.svg"
+        className={`absolute top-0 left-0 w-full h-full animate__animated animate__delay ${
+          open
+            ? "animate__fadeIn animate__slow"
+            : "animate__fadeOut animate__fast"
+        }`}
         alt=""
       />
       <div
-        className={`w-full h-[100vh] flex flex-col items-center justify-start gap-44 absolute top-[19%] ${
-          open ? "" : ""
+        className={`w-full h-[100vh] animate__animated ${
+          open ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
         }`}
       >
-        <WheelOfFortuneComp
-          whichQuest={whichQuest}
-          congratsRefOpen={congratsRefOpen}
-          setOpen={setOpen}
+        <img
+          src="/spinner/rouletteBG.png"
+          className="absolute top-[15%] left-1/2 -translate-x-1/2 w-full"
+          alt=""
         />
+        <div
+          className={`w-full h-[100vh] flex flex-col items-center justify-start gap-44 absolute top-[19%] ${
+            open ? "" : ""
+          }`}
+        >
+          <WheelOfFortuneComp
+            whichQuest={whichQuest}
+            fortune={fortune}
+            congratsRefOpen={congratsRefOpen}
+            setOpen={setOpen}
+          />
+        </div>
       </div>
     </div>
   );
