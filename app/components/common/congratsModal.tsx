@@ -36,7 +36,15 @@ const CongratsModal = (props: any, ref: any) => {
           open ? "animate__fadeIn" : "animate__fadeOut"
         }`}
       >
-        <img className="max-w-[70%]" src="/congrats/congrats.png" alt="" />
+        {data?.score >= 0 ? (
+          <img className="max-w-[70%]" src="/congrats/congrats.png" alt="" />
+        ) : (
+          <img
+            className="max-w-[70%]"
+            src="/congrats/antiCongrats.png"
+            alt=""
+          />
+        )}
         <img className="max-w-[26%]" src="/congrats/coin.png" alt="" />
         <p className="text-white font-bold text-6xl">{data?.score}</p>
       </div>
