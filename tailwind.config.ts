@@ -24,6 +24,10 @@ const config: Config = {
       animation: {
         prjj: "prjj 1.5s infinite",
       },
+      fontFamily: {
+        Iransans: ["Iransans", "Iransans"],
+        Nazanin: ["Nazanin", "Nazanin"],
+      },
     },
   },
   plugins: [],

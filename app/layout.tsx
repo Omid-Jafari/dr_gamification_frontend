@@ -6,7 +6,7 @@ import SigninContainer from "./components/signin/signinContainer";
 import { Providers } from "./redux/provider";
 import { Toaster } from "react-hot-toast";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,8 +22,8 @@ export default function RootLayout({
     <html lang="en" dir="rtl">
       <body
         className={
-          inter.className +
-          " w-full h-[100vh] flex justify-center overflow-hidden"
+          // inter.className +
+          " w-full h-[100vh] flex justify-center overflow-hidden font-Iransans"
         }
       >
         <div className="relative w-full sm:w-auto">
