@@ -13,7 +13,7 @@ const Records = () => {
 
   const getUsersDataQuery = useQuery({
     queryKey: ["getUsersDataQuery"],
-    queryFn: () => usersData(),
+    queryFn: () => usersData({ limit: 10 }),
     refetchOnWindowFocus: false,
     onSuccess: (data) => {
       setUsers(data?.data);
