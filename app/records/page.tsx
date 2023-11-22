@@ -36,8 +36,8 @@ const Records = () => {
       }`}
     >
       <img
-        src="/ModalBlueBg.svg"
-        className={`absolute top-0 left-0 w-full h-full animate__animated animate__delay ${
+        src="/common/ModalBlueBg.svg"
+        className={`absolute top-0 left-0 w-full h-[100vh] object-cover animate__animated animate__delay ${
           open
             ? "animate__fadeIn animate__slow"
             : "animate__fadeOut animate__fast"

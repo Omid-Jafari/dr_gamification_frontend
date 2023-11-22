@@ -18,8 +18,8 @@ const ModalContainer = ({
       }`}
     >
       <img
-        src="/ModalBlueBg.svg"
-        className={`absolute top-0 left-0 w-full h-full animate__animated animate__delay ${
+        src="/common/ModalBlueBg.svg"
+        className={`absolute top-0 left-0 w-full h-[100vh] object-cover animate__animated animate__delay ${
           open
             ? "animate__fadeIn animate__slow"
             : "animate__fadeOut animate__fast"
@@ -27,7 +27,7 @@ const ModalContainer = ({
         alt=""
       />
       <div
-        className={`bg-[url(/modalBG.png)] bg-contain w-full h-[100vh] bg-no-repeat animate__animated ${
+        className={`bg-[url(/common/modalBG.png)] bg-contain w-full h-[100vh] bg-no-repeat animate__animated ${
           open ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
         }`}
       >

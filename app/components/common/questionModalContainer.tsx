@@ -16,7 +16,7 @@ const QuestionModalContainer = ({
       }`}
     >
       <div
-        className={`bg-[url(/biggerModalBG.png)] w-full h-[100vh] bg-no-repeat animate__animated bg-top bg-[length:99%_90%] sm:bg-[length:95%_90%] ${
+        className={`bg-[url(/common/biggerModalBG.png)] w-full h-[100vh] bg-no-repeat animate__animated bg-top bg-[length:99%_90%] sm:bg-[length:95%_90%] ${
           open ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
         }`}
       >
