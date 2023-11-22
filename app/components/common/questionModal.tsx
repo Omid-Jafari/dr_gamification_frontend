@@ -26,7 +26,7 @@ const QuestionModal = (
   const [loading, setLoading] = useState(false);
   const [answered, setAnswered] = useState(false);
   const { user } = useSelector((state: RootState) => state.user);
-  const visibleTodos = useMemo(() => {
+  const visibleQuests = useMemo(() => {
     let array = [0, 1, 2];
     let currentIndex = array.length,
       randomIndex;
@@ -63,7 +63,6 @@ const QuestionModal = (
       score1: Yup.number().required("پاسخ به این سوال الزامیست"),
       score2: Yup.number().required("پاسخ به این سوال الزامیست"),
     }),
-
     onSubmit: (data) => {
       setAnswered(true);
       if (data?.score0 && data?.score1 && data?.score2) {
@@ -72,10 +71,21 @@ const QuestionModal = (
           setLoading(false);
           if (data?.score0 && data?.score1 && data?.score2) {
             setOpen(false);
+            const newArray = [data.score0, data.score1, data.score2];
             openConfirmRef({
               confirmBody: {
                 score: data.score0 + data.score1 + data.score2,
-                [whichQuest]: true,
+                questions: [
+                  ...user.questions,
+                  {
+                    name: whichQuest,
+                    answers: [
+                      newArray[visibleQuests[0]],
+                      newArray[visibleQuests[1]],
+                      newArray[visibleQuests[2]],
+                    ],
+                  },
+                ],
                 friends: [
                   {
                     ...user.friends[0],
@@ -91,7 +101,19 @@ const QuestionModal = (
                   },
                 ],
               },
-              whichQuest: whichQuest,
+              wheelBody: {
+                questions: [
+                  ...user.questions,
+                  {
+                    name: whichQuest,
+                    answers: [
+                      newArray[visibleQuests[0]],
+                      newArray[visibleQuests[1]],
+                      newArray[visibleQuests[2]],
+                    ],
+                  },
+                ],
+              },
             });
           }
         }, 2000);
@@ -121,7 +143,7 @@ const QuestionModal = (
               <QuestionChoices
                 key={`QChoiceKey${index}`}
                 choice={choice}
-                index={visibleTodos[index]}
+                index={visibleQuests[index]}
                 formik={formik}
                 answered={answered}
               />

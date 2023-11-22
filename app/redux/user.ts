@@ -7,17 +7,18 @@ export interface UserFriends {
   avatarSrc: string;
   score: number;
 }
+export interface Question {
+  name: string;
+  answers: number[];
+}
 export interface User {
-  _id: number;
+  _id: string;
   name: string;
   phoneNumber: number;
   score: number;
   policeMale: number;
   friends: UserFriends[];
-  transFirstQuest: boolean;
-  transSecondQuest: boolean;
-  transThirdQuest: boolean;
-  transForthQuest: boolean;
+  questions: Question[];
   createdAt: string;
   updatedAt: string;
 }
@@ -27,16 +28,13 @@ export interface UserState {
 
 const initialState: UserState = {
   user: {
-    _id: 0,
+    _id: "",
     name: "",
     phoneNumber: 0,
     score: 0,
     friends: [],
     policeMale: 0,
-    transFirstQuest: false,
-    transSecondQuest: false,
-    transThirdQuest: false,
-    transForthQuest: false,
+    questions: [],
     createdAt: "",
     updatedAt: "",
   },

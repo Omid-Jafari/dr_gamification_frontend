@@ -11,7 +11,7 @@ const ConfirmModal = ({ openWheelRef }: { openWheelRef: any }, ref: any) => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [confirmBody, setConfirmBody] = useState<any>();
-  const [whichQuest, setWhichQuest] = useState("");
+  const [wheelBody, setWheelBody] = useState({});
   const { user } = useSelector((state: RootState) => state.user);
 
   const updateUserMutation = useMutation({
@@ -32,10 +32,10 @@ const ConfirmModal = ({ openWheelRef }: { openWheelRef: any }, ref: any) => {
     openModal(body: any) {
       setOpen(true);
       setConfirmBody(body.confirmBody);
-      setWhichQuest(body.whichQuest);
+      setWheelBody(body.wheelBody);
     },
   }));
-
+  console.log("asdasdsdas", confirmBody);
   return (
     <ConfirmModalContainer open={open}>
       <div className="w-full h-[100vh] flex justify-center items-center">
@@ -67,6 +67,7 @@ const ConfirmModal = ({ openWheelRef }: { openWheelRef: any }, ref: any) => {
                 })
               }
               className="form_btn_white shadow-light flex items-center justify-center gap-1 flex-grow"
+              dir="ltr"
             >
               {updateUserMutation.isLoading ? (
                 <Loading />
@@ -78,7 +79,7 @@ const ConfirmModal = ({ openWheelRef }: { openWheelRef: any }, ref: any) => {
               type="button"
               onClick={() => {
                 openWheelRef({
-                  whichQuest: whichQuest,
+                  wheelBody: wheelBody,
                   fortune: confirmBody?.score > 0,
                 });
                 setOpen(false);

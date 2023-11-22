@@ -46,7 +46,9 @@ const CongratsModal = (props: any, ref: any) => {
           />
         )}
         <img className="max-w-[26%]" src="/congrats/coin.png" alt="" />
-        <p className="text-white font-bold text-6xl">{data?.score}</p>
+        <p dir="ltr" className="text-white font-bold text-6xl">
+          {data?.score}
+        </p>
       </div>
     </div>
   );

@@ -21,10 +21,6 @@ const Header = () => {
     distance = now - createdTime;
     setMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
     setSeconds(Math.floor((distance % (1000 * 60)) / 1000));
-    // if (seconds < -1) {
-    //   localStorage.removeItem("previousPrices");
-    //   localStorage.removeItem("expirePreviousPrices");
-    // }
   };
   useEffect(() => {
     const interval = setInterval(() => getTime(), 1000);
@@ -50,7 +46,10 @@ const Header = () => {
         <img src="/header/timer.png" alt="" className="h-8" />
       </div>
       <div className="relative">
-        <span className="absolute z-10 top-1/2 -translate-y-1/2 -translate-x-1/2 left-2/3 text-[#1E7BD1]">
+        <span
+          className="absolute z-10 top-1/2 -translate-y-1/2 -translate-x-1/2 left-2/3 text-[#1E7BD1]"
+          dir="ltr"
+        >
           {user.score}
         </span>
         <img src="/header/score.png" alt="" className="h-8" />

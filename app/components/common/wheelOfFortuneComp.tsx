@@ -7,12 +7,12 @@ import { useMutation } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 
 const WheelOfFortuneComp = ({
-  whichQuest,
+  wheelBody,
   fortune,
   congratsRefOpen,
   setOpen,
 }: {
-  whichQuest: string;
+  wheelBody: object;
   fortune: boolean;
   congratsRefOpen: any;
   setOpen: any;
@@ -241,7 +241,7 @@ const WheelOfFortuneComp = ({
       dispatch(
         updateUserScore({
           score: user.score + +data[prizeNumber].option,
-          [whichQuest]: true,
+          ...wheelBody,
         })
       );
     },
@@ -254,7 +254,7 @@ const WheelOfFortuneComp = ({
       _id: user._id,
       body: {
         score: user.score + +data[prizeNumber].option,
-        [whichQuest]: true,
+        ...wheelBody,
       },
     });
     congratsRefOpen({

@@ -6,19 +6,13 @@ const WheelSpinnerModal = (
   ref: any
 ) => {
   const [open, setOpen] = useState(false);
-  const [whichQuest, setWhichQuest] = useState("");
+  const [wheelBody, setWheelBody] = useState({});
   const [fortune, setFortune] = useState(true);
 
   useImperativeHandle(ref, () => ({
-    openModal({
-      whichQuest,
-      fortune,
-    }: {
-      whichQuest: string;
-      fortune: boolean;
-    }) {
+    openModal({ wheelBody, fortune }: { wheelBody: object; fortune: boolean }) {
       setOpen(true);
-      setWhichQuest(whichQuest);
+      setWheelBody(wheelBody);
       setFortune(fortune);
     },
   }));
@@ -56,7 +50,7 @@ const WheelSpinnerModal = (
           }`}
         >
           <WheelOfFortuneComp
-            whichQuest={whichQuest}
+            wheelBody={wheelBody}
             fortune={fortune}
             congratsRefOpen={congratsRefOpen}
             setOpen={setOpen}

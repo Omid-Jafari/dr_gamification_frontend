@@ -7,7 +7,7 @@ import {
   fristQuest,
   secondQuest,
   thirdQuest,
-} from "../constant/questions/transportation";
+} from "../constant/questions/shop";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import ConfirmModal from "../components/common/confirmModal";
@@ -15,7 +15,7 @@ import GuideModal from "../components/common/guideModal";
 import WheelSpinnerModal from "../components/common/wheelSpinnerModal";
 import CongratsModal from "../components/common/congratsModal";
 
-const Transportation = () => {
+const Shop = () => {
   const guideRef: any = useRef(null);
   const confirmRef: any = useRef(null);
   const wheelRef: any = useRef(null);
@@ -60,10 +60,9 @@ const Transportation = () => {
       return false;
     }
   };
-  console.log("asdadasdads", checkAnswered("transFirstQuest"));
-  console.log("user", user);
+
   return (
-    <div className=" w-full h-[100vh] bg-[url(/transportation/transportation.jpg)] bg-no-repeat sm:bg-[length:auto_100%] bg-[length:100%_100%]">
+    <div className=" w-full h-[100vh] bg-[url(/shop/shop.jpg)] bg-no-repeat sm:bg-[length:auto_100%] bg-[length:100%_100%]">
       <CongratsModal ref={congratsRef} />
       <ConfirmModal ref={confirmRef} openWheelRef={openWheelRef} />
       <GuideModal ref={guideRef} />
@@ -83,7 +82,7 @@ const Transportation = () => {
             className="absolute bottom-[3%] w-[20%] left-[56%]"
           >
             <img
-              src="/homeIcons/transportation.png"
+              src="/homeIcons/shop.png"
               alt="transportation icon"
               className="w-full h-auto animate-prjj"
             />
@@ -105,7 +104,7 @@ const Transportation = () => {
             className="absolute top-[56%] w-[20%] left-[3%]"
           >
             <img
-              src="/homeIcons/transportation.png"
+              src="/homeIcons/shop.png"
               alt="transportation icon"
               className="w-full h-auto animate-prjj"
             />
@@ -127,7 +126,7 @@ const Transportation = () => {
             className="absolute bottom-[11%] w-[20%] left-[44%]"
           >
             <img
-              src="/homeIcons/transportation.png"
+              src="/homeIcons/shop.png"
               alt="transportation icon"
               className="w-full h-auto animate-prjj"
             />
@@ -149,7 +148,7 @@ const Transportation = () => {
             className="absolute top-[56%] w-[20%] left-[30%]"
           >
             <img
-              src="/homeIcons/transportation.png"
+              src="/homeIcons/shop.png"
               alt="transportation icon"
               className="w-full h-auto animate-prjj"
             />
@@ -160,4 +159,4 @@ const Transportation = () => {
   );
 };
 
-export default Transportation;
+export default Shop;
