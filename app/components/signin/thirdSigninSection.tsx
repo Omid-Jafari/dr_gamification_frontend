@@ -2,23 +2,20 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const ThirdSigninSection = (props: any) => {
-  const { handleModal } = props;
+  const { creatingUser, handleModal, handleBackModal } = props;
   const formik = useFormik({
     initialValues: {
-      FFriendName: "",
-      fAvatarSrc: "sx",
-      SFriendName: "",
-      sAvatarSrc: "xs",
-      TFriendName: "",
-      tAvatarSrc: "xs",
+      FFriendName: creatingUser?.friends[0]?.name || "",
+      fAvatarSrc: creatingUser?.friends[0]?.avatarSrc || "",
+      SFriendName: creatingUser?.friends[1]?.name || "",
+      sAvatarSrc: creatingUser?.friends[1]?.avatarSrc || "",
+      TFriendName: creatingUser?.friends[2]?.name || "",
+      tAvatarSrc: creatingUser?.friends[2]?.avatarSrc || "",
     },
     validationSchema: Yup.object({
       FFriendName: Yup.string().required("لطفا نام را وارد کنید"),
-      // fAvatarSrc: Yup.string().required("لطفا عکس را انتخاب کنید"),
       SFriendName: Yup.string().required("لطفا نام را وارد کنید"),
-      // sAvatarSrc: Yup.string().required("لطفا عکس را انتخاب کنید"),
       TFriendName: Yup.string().required("لطفا نام را وارد کنید"),
-      // tAvatarSrc: Yup.string().required("لطفا عکس را انتخاب کنید"),
     }),
     onSubmit: (data) => {
       handleModal({
@@ -30,6 +27,7 @@ const ThirdSigninSection = (props: any) => {
       });
     },
   });
+
   return (
     <form
       key="secondSigninChapterKey"
@@ -46,20 +44,15 @@ const ThirdSigninSection = (props: any) => {
           value={formik.values.FFriendName}
         />
         <img
-          src="/PersonIcon.png"
+          src={formik.values.fAvatarSrc}
           className="absolute top-0 right-0 h-[50px]"
           alt=""
         />
         {formik.errors.FFriendName && formik.touched.FFriendName && (
           <div className="text-red-600 w-full text-sm px-3 py-2">
-            {formik.errors.FFriendName}
+            {formik.errors.FFriendName as string}
           </div>
         )}
-        {/* {formik.errors.fAvatarSrc && formik.touched.fAvatarSrc && (
-          <div className="text-red-600 w-full text-sm px-3 py-2">
-            {formik.errors.fAvatarSrc}
-          </div>
-        )} */}
       </fieldset>
       <fieldset className="relative">
         <input
@@ -71,20 +64,15 @@ const ThirdSigninSection = (props: any) => {
           value={formik.values.SFriendName}
         />
         <img
-          src="/PersonIcon.png"
+          src={formik.values.sAvatarSrc}
           className="absolute top-0 right-0 h-[50px]"
           alt=""
         />
         {formik.errors.SFriendName && formik.touched.SFriendName && (
           <div className="text-red-600 w-full text-sm px-3 py-2">
-            {formik.errors.SFriendName}
+            {formik.errors.SFriendName as string}
           </div>
         )}
-        {/* {formik.errors.sAvatarSrc && formik.touched.sAvatarSrc && (
-          <div className="text-red-600 w-full text-sm px-3 py-2">
-            {formik.errors.sAvatarSrc}
-          </div>
-        )} */}
       </fieldset>
       <fieldset className="relative">
         <input
@@ -96,29 +84,33 @@ const ThirdSigninSection = (props: any) => {
           value={formik.values.TFriendName}
         />
         <img
-          src="/PersonIcon.png"
+          src={formik.values.tAvatarSrc}
           className="absolute top-0 right-0 h-[50px]"
           alt=""
         />
         {formik.errors.TFriendName && formik.touched.TFriendName && (
           <div className="text-red-600 w-full text-sm px-3 py-2">
-            {formik.errors.TFriendName}
+            {formik.errors.TFriendName as string}
           </div>
         )}
-        {/* {formik.errors.tAvatarSrc && formik.touched.tAvatarSrc && (
-          <div className="text-red-600 w-full text-sm px-3 py-2">
-            {formik.errors.tAvatarSrc}
-          </div>
-        )} */}
       </fieldset>
-      <button
-        type="button"
-        onClick={(e) => formik.handleSubmit()}
-        className="form_btn shadow-light flex items-center justify-center gap-1"
-      >
-        <img src="/flash.svg" alt="" />
-        بعدی
-      </button>
+      <div className="flex justify-center items-center gap-5">
+        <button
+          type="button"
+          onClick={(e) => formik.handleSubmit()}
+          className="form_btn shadow-light flex items-center justify-center flex-grow"
+        >
+          بعدی
+        </button>
+
+        <button
+          type="button"
+          onClick={() => handleBackModal()}
+          className="form_btn_white shadow-light flex items-center justify-center flex-grow"
+        >
+          قبلی
+        </button>
+      </div>
     </form>
   );
 };

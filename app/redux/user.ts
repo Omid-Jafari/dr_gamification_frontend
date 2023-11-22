@@ -15,6 +15,9 @@ export interface User {
   policeMale: number;
   friends: UserFriends[];
   transFirstQuest: boolean;
+  transSecondQuest: boolean;
+  transThirdQuest: boolean;
+  transForthQuest: boolean;
   createdAt: string;
   updatedAt: string;
 }
@@ -31,6 +34,9 @@ const initialState: UserState = {
     friends: [],
     policeMale: 0,
     transFirstQuest: false,
+    transSecondQuest: false,
+    transThirdQuest: false,
+    transForthQuest: false,
     createdAt: "",
     updatedAt: "",
   },

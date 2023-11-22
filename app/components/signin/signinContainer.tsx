@@ -1,23 +1,19 @@
 "use client";
 
-import { RootState } from "@/app/redux/store";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { assignUser } from "@/app/redux/user";
-import { useFormik } from "formik";
-import * as Yup from "yup";
 import FirstSigninSection from "./firstSigninSection";
 import { useEffect, useState } from "react";
 import ThirdSigninSection from "./thirdSigninSection";
 import ForthSigninSection from "./forthSigninSection";
 import { useMutation, useQuery } from "react-query";
 import { signinUser, userData } from "@/app/api/ApiClient";
-import { error } from "console";
 import toast from "react-hot-toast";
 import ModalContainer from "../common/modalContainer";
+import SecondSigninSection from "./secondSigninSection";
 
 const SigninContainer = () => {
   const dispatch = useDispatch();
-  const { user } = useSelector((state: RootState) => state.user);
   const [activeSection, setActiveSection] = useState(0);
   const [creatingUser, setCreatingUser] = useState<object>();
   const localStorageId =
@@ -68,27 +64,39 @@ const SigninContainer = () => {
     }
     setCreatingUser((prev: object) => ({ ...prev, ...data }));
   };
+  const handleBackModal = (data: any, isLast = false) => {
+    setActiveSection(activeSection - 1);
+  };
 
   const signinFormSections = [
     <FirstSigninSection
-      key="FirstSigninChapterKey"
+      creatingUser={creatingUser}
       handleModal={handleModal}
+      handleBackModal={handleBackModal}
+      key="FirstSigninChapterKey"
+    />,
+    <SecondSigninSection
+      creatingUser={creatingUser}
+      handleModal={handleModal}
+      handleBackModal={handleBackModal}
+      key="secondSigninChapterKey"
     />,
     <ThirdSigninSection
-      key="secondSigninChapterKey"
+      creatingUser={creatingUser}
       handleModal={handleModal}
+      handleBackModal={handleBackModal}
+      key="secondSigninChapterKey"
     />,
     <ForthSigninSection
-      key="secondSigninChapterKey"
+      creatingUser={creatingUser}
       handleModal={handleModal}
+      handleBackModal={handleBackModal}
       isLoading={getUserDataQuery?.isLoading}
+      key="secondSigninChapterKey"
     />,
   ];
   return (
-    <ModalContainer
-      // open={!localStorageId || localStorageId === "undefined" || user._id === 0}
-      open={signOpen}
-    >
+    <ModalContainer open={signOpen}>
       <div className="w-full h-[100vh] flex justify-center items-center">
         {signinFormSections?.map(
           (comp, index) => index === activeSection && comp

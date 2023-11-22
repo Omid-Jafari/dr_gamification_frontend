@@ -1,4 +1,5 @@
 import { RootState } from "@/app/redux/store";
+import Image from "next/image";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -32,18 +33,25 @@ const QuestionChoices = ({
               : "bg-[#FED659]"
           }`}
         >
-          <img
-            className="w-1/4 h-auto"
-            src={choice.choiceImg}
-            alt={`questionChoicesImg${index}`}
-          />
+          <div className="relative aspect-square w-[25%]">
+            <Image
+              fill
+              objectFit="contain"
+              src={choice.choiceImg}
+              alt={`questionChoicesImg${index}`}
+            />
+          </div>
+
           <div className="w-3/4 flex-col flex-shrink-0 gap-2">
             <div className="flex items-center w-full gap-2 p-1">
-              <img
-                className="w-1/6 h-auto"
-                src={choice.choiceImg}
-                alt={`questionChoicesImg${index}`}
-              />
+              <div className="relative aspect-square w-[16.66%]">
+                <Image
+                  fill
+                  objectFit="contain"
+                  src={user.friends[index]?.avatarSrc}
+                  alt={`questionChoicesImg${index}`}
+                />
+              </div>
               <span className="w-5/6 text-justify">
                 {user.friends[index]?.name + " " + choice.choiceTxt}
               </span>

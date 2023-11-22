@@ -2,11 +2,11 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const FirstSigninSection = (props: any) => {
-  const { handleModal } = props;
+  const { creatingUser, handleModal } = props;
   const formik = useFormik({
     initialValues: {
-      name: "",
-      phoneNumber: "",
+      name: creatingUser?.name || "",
+      phoneNumber: creatingUser?.phoneNumber || "",
     },
     validationSchema: Yup.object({
       name: Yup.string().required("لطفا نام را وارد کنید"),
@@ -22,6 +22,7 @@ const FirstSigninSection = (props: any) => {
       handleModal(data);
     },
   });
+
   return (
     <form
       key="FirstSigninChapterKey"
@@ -37,13 +38,13 @@ const FirstSigninSection = (props: any) => {
           value={formik.values.phoneNumber}
         />
         <img
-          src="/PhoneIcon.png"
+          src="/signin/PhoneIcon.png"
           className="absolute top-0 right-0 h-[50px]"
           alt=""
         />
         {formik.errors.phoneNumber && formik.touched.phoneNumber && (
           <div className="text-red-600 w-full text-sm px-3 py-2">
-            {formik.errors.phoneNumber}
+            {formik.errors.phoneNumber as string}
           </div>
         )}
       </fieldset>
@@ -57,13 +58,13 @@ const FirstSigninSection = (props: any) => {
           value={formik.values.name}
         />
         <img
-          src="/PersonIcon.png"
+          src="/signin/PersonIcon.png"
           className="absolute top-0 right-0 h-[50px]"
           alt=""
         />
         {formik.errors.name && formik.touched.name && (
           <div className="text-red-600 w-full text-sm px-3 py-2">
-            {formik.errors.name}
+            {formik.errors.name as string}
           </div>
         )}
       </fieldset>
@@ -72,7 +73,6 @@ const FirstSigninSection = (props: any) => {
         onClick={(e) => formik.handleSubmit()}
         className="form_btn shadow-light flex items-center justify-center gap-1"
       >
-        <img src="/flash.svg" alt="" />
         بعدی
       </button>
     </form>

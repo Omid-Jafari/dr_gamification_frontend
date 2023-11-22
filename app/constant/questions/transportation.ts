@@ -10,7 +10,7 @@ export interface Question {
 
 export const fristQuest: Question = {
   questionText:
-    "کدام گزینه برای رفتن به فروشگاه با توجه به محیط زیست مناسبتر است؟",
+    "1.کدام گزینه برای رفتن به فروشگاه با توجه به محیط زیست مناسبتر است؟",
   chices: [
     {
       choiceTxt: "با دوچرخه به فروشگاه میره.",
@@ -32,21 +32,21 @@ export const fristQuest: Question = {
 };
 export const secondQuest: Question = {
   questionText:
-    "کدام گزینه برای رفتن به فروشگاه با توجه به محیط زیست مناسبتر هست؟",
+    "2.کدام گزینه برای رفتن به فروشگاه با توجه به محیط زیست مناسبتر هست؟",
   chices: [
     {
       choiceTxt: "با سرعت کمتری رانندگی می‌کنه.",
-      choiceImg: "/questions/transportation/firstQuest/bike.png",
+      choiceImg: "/questions/transportation/secQuest/slow.png",
       answer: 1,
+    },
+    {
+      choiceTxt: " برای زودتر رسیدن به فروشگاه با سرعت بالاتر رانندگی می‌کنه.",
+      choiceImg: "/questions/transportation/secQuest/fast.png",
+      answer: 0,
     },
     {
       choiceTxt: " پیاده به فروشگاه میره.",
-      choiceImg: "/questions/transportation/firstQuest/car.png",
-      answer: 1,
-    },
-    {
-      choiceTxt: "برای زودتر رسیدن به فروشگاه با سرعت بالاتر رانندگی می‌کنه.",
-      choiceImg: "/questions/transportation/firstQuest/electricCar.png",
+      choiceImg: "/questions/transportation/secQuest/walk.png",
       answer: 0,
     },
   ],
@@ -54,22 +54,22 @@ export const secondQuest: Question = {
 };
 export const thirdQuest: Question = {
   questionText:
-    "برای رفتن به فروشگاه با ماشین شخصی انتخاب کدام مسیر آسیب کمتری به محیط‌ زیست وارد می‌کنه؟",
+    "3.برای رفتن به فروشگاه با ماشین شخصی انتخاب کدام مسیر آسیب کمتری به محیط‌ زیست وارد می‌کنه؟",
   chices: [
     {
       choiceTxt: "کوتاه ترین مسیر را انتخاب می‌کنه.",
-      choiceImg: "/questions/transportation/firstQuest/bike.png",
+      choiceImg: "/questions/transportation/thirdQuest/closePass.png",
       answer: 1,
     },
     {
       choiceTxt: " بدون توجه به طول مسیر از رانندگی لذت می‌بره.",
-      choiceImg: "/questions/transportation/firstQuest/car.png",
+      choiceImg: "/questions/transportation/thirdQuest/farPass.png",
       answer: 0,
     },
     {
       choiceTxt: "از فروشگاه های نزدیک خانه خرید می کنه.",
-      choiceImg: "/questions/transportation/firstQuest/electricCar.png",
-      answer: 0,
+      choiceImg: "/questions/transportation/thirdQuest/nearPass.png",
+      answer: 1,
     },
   ],
   guide:
@@ -77,21 +77,21 @@ export const thirdQuest: Question = {
 };
 export const forthQuest: Question = {
   questionText:
-    "بهترین روش برای رفتن به فروشگاه همراه با پدربزرگ خود کدام است؟",
+    "4.بهترین روش برای رفتن به فروشگاه همراه با پدربزرگ خود کدام است؟",
   chices: [
     {
       choiceTxt: "با استفاده از خودروی پدربزرگ به فروشگاه میره.",
-      choiceImg: "/questions/transportation/firstQuest/bike.png",
+      choiceImg: "/questions/transportation/forthQuest/car.png",
       answer: 0,
     },
     {
       choiceTxt: " ا اتوبوس به فروشگاه میره.",
-      choiceImg: "/questions/transportation/firstQuest/car.png",
+      choiceImg: "/questions/transportation/forthQuest/bus.png",
       answer: 1,
     },
     {
       choiceTxt: "با استفاده از دوچرخه اشتراکی (بیدود) به فروشگاه میره.",
-      choiceImg: "/questions/transportation/firstQuest/electricCar.png",
+      choiceImg: "/questions/transportation/forthQuest/bike.png",
       answer: 1,
     },
   ],

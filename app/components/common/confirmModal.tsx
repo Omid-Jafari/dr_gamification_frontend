@@ -44,11 +44,12 @@ const ConfirmModal = ({ openWheelRef }: { openWheelRef: any }, ref: any) => {
         >
           {confirmBody?.score > 0 ? (
             <p className="pb-3 text-center">
-              جوابت درست بود <br /> دوست داری چی جایزه بگیری؟
+              <span className="font-bold">جوابت درست بود</span>
+              <br /> دوست داری چی جایزه بگیری؟
             </p>
           ) : (
             <p className="pb-3 text-center">
-              جوابت اشتباه بود <br />
+              <span className="font-bold">جوابت اشتباه بود</span> <br />
               ازت امتیاز کم کنیم یا شانستو امتحان میکنی؟
             </p>
           )}
@@ -65,7 +66,7 @@ const ConfirmModal = ({ openWheelRef }: { openWheelRef: any }, ref: any) => {
                   },
                 })
               }
-              className="form_btn shadow-light flex items-center justify-center gap-1 flex-grow"
+              className="form_btn_white shadow-light flex items-center justify-center gap-1 flex-grow"
             >
               {updateUserMutation.isLoading ? (
                 <Loading />
@@ -81,7 +82,6 @@ const ConfirmModal = ({ openWheelRef }: { openWheelRef: any }, ref: any) => {
                   fortune: confirmBody?.score > 0,
                 });
                 setOpen(false);
-                console.log("whichQuest", whichQuest);
               }}
               className="form_btn shadow-light flex items-center justify-center gap-1 flex-grow"
             >
