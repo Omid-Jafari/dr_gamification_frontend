@@ -60,8 +60,6 @@ const Transportation = () => {
       return false;
     }
   };
-  console.log("asdadasdads", checkAnswered("transFirstQuest"));
-  console.log("user", user);
   return (
     <div className=" w-full h-[100vh] bg-[url(/transportation/transportation.jpg)] bg-no-repeat sm:bg-[length:auto_100%] bg-[length:100%_100%]">
       <CongratsModal ref={congratsRef} />
