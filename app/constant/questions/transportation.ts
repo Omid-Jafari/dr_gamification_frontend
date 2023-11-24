@@ -1,12 +1,4 @@
-export interface Question {
-  questionText: string;
-  chices: {
-    choiceTxt: string;
-    choiceImg: string;
-    answer: number;
-  }[];
-  guide: string;
-}
+import { Question } from "./questionSchema";
 
 export const fristQuest: Question = {
   questionText:
