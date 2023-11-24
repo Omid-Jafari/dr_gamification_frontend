@@ -1,4 +1,3 @@
-import { Question } from "@/app/constant/questions/transportation";
 import QuestionModalContainer from "./questionModalContainer";
 import { forwardRef, useImperativeHandle, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
@@ -7,6 +6,7 @@ import QuestionChoices from "./questionChoices";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import Loading from "./loading";
+import { Question } from "@/app/constant/questions/questionSchema";
 
 const QuestionModal = (
   {
