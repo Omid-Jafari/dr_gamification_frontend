@@ -113,6 +113,20 @@ const QuestionModal = (
                     ],
                   },
                 ],
+                friends: [
+                  {
+                    ...user.friends[0],
+                    score: user.friends[0].score + data.score0,
+                  },
+                  {
+                    ...user.friends[1],
+                    score: user.friends[1].score + data.score1,
+                  },
+                  {
+                    ...user.friends[2],
+                    score: user.friends[2].score + data.score2,
+                  },
+                ],
               },
             });
           }
