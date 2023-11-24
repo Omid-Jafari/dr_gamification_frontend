@@ -45,7 +45,7 @@ const Records = () => {
         alt=""
       />
       <div
-        className={`w-full h-[100vh] flex flex-col items-center justify-start pt-6 gap-4 animate__animated ${
+        className={`w-full h-[100vh] flex flex-col items-center justify-center pt-5 gap-4 animate__animated ${
           open ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
         }`}
       >
@@ -60,22 +60,26 @@ const Records = () => {
             alt=""
           />
         </button>
-        <p className="text-[28px] font-bold pb-3">جدول امتیازات</p>
         <img
           src="/records/recordsLogo.png"
-          className="mb-[-33px] z-10"
+          className="mb-[-33px] z-10 object-contain max-w-[90px] sm:max-w-[120px] z-50 relative"
           alt=""
         />
         {/* table */}
-        <div className="flex w-full flex-col text-sm sm:text-base">
+        <div className="flex w-full flex-col justify-center items-center text-sm sm:text-base">
           {/* table header */}
-          <div className="w-full min-h-[55px] bg-[#E2E2E2] box_shadow_gen grid grid-cols-11 gap-x-2 items-end p-3">
-            <span className="col-span-1">رتبه</span>
-            <span className="col-span-4">نام کاربری</span>
-            <span className="col-span-2">امتیاز</span>
-            <span className="col-span-4">نشان</span>
+          <div className="w-full min-h-[55px] bg-[#E2E2E2] box_shadow_gen flex justify-center items-center p-3 z-20 relative">
+            <p className="text-[20px] font-bold py-3 px-9 bg-[#E2E2E2] rounded-full -mb-5 ">
+              جدول امتیازات
+            </p>
           </div>
-          <div className="w-full flex flex-col px-3 record_table_rows text-white text-xs max-h-[450px] overflow-y-auto sm:max-h-max">
+          <div className="w-[94%] flex flex-col rounded-b-[16px] overflow-hidden record_table_rows text-white text-xs">
+            <div className="w-full grid grid-cols-11 gap-x-2 items-end px-3 py-5">
+              <span className="col-span-1">رتبه</span>
+              <span className="col-span-4">نام کاربری</span>
+              <span className="col-span-2">امتیاز</span>
+              <span className="col-span-4">نشان</span>
+            </div>
             <div className="table_row_Seperator"></div>
             {users?.map((user: any, index) => (
               <div
