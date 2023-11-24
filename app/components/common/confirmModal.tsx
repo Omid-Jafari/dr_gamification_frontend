@@ -35,7 +35,6 @@ const ConfirmModal = ({ openWheelRef }: { openWheelRef: any }, ref: any) => {
       setWheelBody(body.wheelBody);
     },
   }));
-  console.log("asdasdsdas", confirmBody);
   return (
     <ConfirmModalContainer open={open}>
       <div className="w-full h-[100vh] flex justify-center items-center">
