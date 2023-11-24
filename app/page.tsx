@@ -20,6 +20,26 @@ export default function Home() {
           className="w-full h-auto animate-prjj"
         />
       </Link>
+      <Link
+        className="absolute bottom-[38%] w-[20%] left-[26%]"
+        href="/consumption"
+      >
+        <img
+          src="/homeIcons/consumption.png"
+          alt="consumption icon"
+          className="w-full h-auto animate-prjj"
+        />
+      </Link>
+      <Link
+        className="absolute bottom-[22%] w-[20%] right-[12%]"
+        href="/recycle"
+      >
+        <img
+          src="/homeIcons/recycle.png"
+          alt="recycle icon"
+          className="w-full h-auto animate-prjj"
+        />
+      </Link>
     </main>
   );
 }
