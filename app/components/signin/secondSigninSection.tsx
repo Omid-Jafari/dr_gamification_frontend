@@ -71,7 +71,7 @@ const SecondSigninSection = (props: any) => {
   return (
     <form
       key="secondSigninChapterKey"
-      className={`w-[84%] flex flex-col gap-[10px] mt-[-32%] sm:mt-0`}
+      className={`w-[84%] flex flex-col gap-[10px]`}
     >
       <p className="text-sm">سه تا از تصاویر رو انتخاب کن:</p>
       <div className="flex flex-wrap justify-center items-center">

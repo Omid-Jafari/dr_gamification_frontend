@@ -11,6 +11,25 @@ export interface Question {
   name: string;
   answers: number[];
 }
+export interface SingleQuestionnaire {
+  question: string;
+  name: string;
+  answer: number;
+}
+export interface Questionnaire {
+  age: number;
+  gender: number;
+  questionnaireBody: SingleQuestionnaire[];
+}
+export interface NthTimeResult {
+  time: Date;
+  correctAnswers: number;
+  wrongAnswers: number;
+  score: number;
+  rank: number;
+  questions: Question[];
+  questionnaire: Questionnaire;
+}
 export interface User {
   _id: string;
   name: string;
@@ -21,6 +40,9 @@ export interface User {
   questions: Question[];
   createdAt: string;
   updatedAt: string;
+  secondCreatedAt?: string;
+  firstTimeResult?: NthTimeResult;
+  secondTimeResult?: NthTimeResult;
 }
 export interface UserState {
   user: User;
@@ -35,6 +57,9 @@ const initialState: UserState = {
     friends: [],
     policeMale: 0,
     questions: [],
+    // secondTimeResult: { time: "", correctAnswers: 0, score: 0, questions: [] },
+    // firstTimeResult: { time: "", correctAnswers: 0, score: 0, questions: [] },
+    // secondCreatedAt: "",
     createdAt: "",
     updatedAt: "",
   },

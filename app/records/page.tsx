@@ -45,7 +45,7 @@ const Records = () => {
         alt=""
       />
       <div
-        className={`w-full h-[100vh] flex flex-col items-center justify-center pt-5 gap-4 animate__animated ${
+        className={`w-full h-[100vh] flex flex-col items-center justify-center pt-5 gap-4 animate__animated  animate__delay-1s ${
           open ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
         }`}
       >

@@ -46,7 +46,11 @@ const GuideModal = (props: any, ref: any) => {
             alt=""
           />
         </button>
-        <div className={`w-[80%] max-h-[80%] text-center `}>{guidetxt}</div>
+        <div
+          className={`sm:w-[80%] w-[90%] text-sm sm:text-base max-h-[80%] text-center `}
+        >
+          {guidetxt}
+        </div>
       </div>
     </GuideModalContainer>
   );

@@ -1,0 +1,46 @@
+import Image from "next/image";
+import { useState } from "react";
+
+const SecondQuest = ({
+  open,
+  user,
+  handleNextModal,
+}: {
+  open: boolean;
+  user: any;
+  handleNextModal: any;
+}) => {
+  const [openSection, setOpenSection] = useState(open);
+  const closeSection = () => {
+    setOpenSection(false);
+    handleNextModal({});
+  };
+
+  return (
+    <div
+      className={`relative bg-[url(/common/biggerModalBG.png)] w-full h-[100vh] bg-no-repeat bg-top bg-[length:99%_90%] sm:bg-[length:95%_90%] flex flex-col items-center justify-center animate__animated ${
+        openSection ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
+      }`}
+    >
+      <div className="flex flex-col w-4/5 gap-3">
+        <p className="font-medium">اسم قشنگت رو میگی!</p>
+        <img src="/questionnaire/secondQuest.png" className="w-full" alt="" />
+        <input
+          className="bg-[#fff] outline-none w-full h-[50px] px-4 placeholder:text-[#93999D] rounded-[32px] shadow-light"
+          name="name"
+          disabled
+          value={user.name}
+        />
+        <button
+          type="button"
+          onClick={closeSection}
+          className="form_btn shadow-light flex items-center justify-center gap-1"
+        >
+          بعدی
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default SecondQuest;

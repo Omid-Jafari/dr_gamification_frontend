@@ -31,7 +31,9 @@ const FactModal = ({ setCongratsOpen }: any, ref: any) => {
         </button>
         <div className="flex w-4/5 flex-col justify-center items-center gap-5">
           <img src={factBody?.imgSrc} alt="" />
-          <div className={`w-[80%] max-h-[80%] text-center `}>
+          <div
+            className={`sm:w-[80%] w-[90%] text-sm sm:text-base max-h-[80%] text-center `}
+          >
             {factBody?.txt}
           </div>
         </div>

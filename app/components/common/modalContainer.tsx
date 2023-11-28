@@ -27,7 +27,7 @@ const ModalContainer = ({
         alt=""
       />
       <div
-        className={`bg-[url(/common/modalBG.png)] bg-contain w-full h-[100vh] bg-no-repeat animate__animated ${
+        className={`bg-[url(/common/modalBG.png)] bg-[length:100%_83%] w-full h-[100vh] bg-no-repeat animate__animated ${
           open ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
         }`}
       >

@@ -1,6 +1,6 @@
 "use client";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { assignUser } from "@/app/redux/user";
 import FirstSigninSection from "./firstSigninSection";
 import { useEffect, useState } from "react";
@@ -11,18 +11,26 @@ import { signinUser, userData } from "@/app/api/ApiClient";
 import toast from "react-hot-toast";
 import ModalContainer from "../common/modalContainer";
 import SecondSigninSection from "./secondSigninSection";
+import { RootState } from "@/app/redux/store";
+import { useRouter } from "next/navigation";
 
 const SigninContainer = () => {
   const dispatch = useDispatch();
   const [activeSection, setActiveSection] = useState(0);
   const [creatingUser, setCreatingUser] = useState<object>();
+  const router = useRouter();
   const localStorageId =
     typeof window !== "undefined" ? localStorage.getItem("UserId") : null;
   const [signOpen, setSignOpen] = useState(false);
+  const { user } = useSelector((state: RootState) => state.user);
   useEffect(() => {
     setSignOpen(!localStorageId);
   }, [localStorageId]);
-
+  useEffect(() => {
+    if (user.questions.length === 21) {
+      router.push("/results");
+    }
+  }, [user.questions, router]);
   const getUserDataQuery = useQuery({
     queryKey: ["getUserDataQuery"],
     queryFn: () => userData(localStorageId),

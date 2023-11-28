@@ -36,3 +36,14 @@ export const signinUser = (body: object) => {
 export const updateUser = ({ _id, body }: { _id: string; body: object }) => {
   return useAxios.patch(`/user/${_id}`, body);
 };
+export const finishedQuestions = ({
+  _id,
+  reset = false,
+  body,
+}: {
+  _id: string;
+  reset?: boolean;
+  body: object;
+}) => {
+  return useAxios.patch(`/finished/${_id}${reset ? "?reset=true" : ""}`, body);
+};

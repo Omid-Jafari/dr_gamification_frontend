@@ -11,14 +11,18 @@ import Link from "next/link";
 const Header = () => {
   const { user } = useSelector((state: RootState) => state.user);
   const router = useRouter();
+  const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
   const getTime = () => {
     const now = new Date().getTime();
-    const createdTime = new Date(user.createdAt).getTime();
+    const createdTime = user.secondCreatedAt
+      ? new Date(user.secondCreatedAt).getTime()
+      : new Date(user.createdAt).getTime();
     let distance;
     distance = now - createdTime;
+    setHours(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
     setMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
     setSeconds(Math.floor((distance % (1000 * 60)) / 1000));
   };
@@ -41,7 +45,9 @@ const Header = () => {
       </Link>
       <div className="relative">
         <span className="absolute z-10 top-1/2 -translate-y-1/2 -translate-x-1/2 left-2/3 text-[#1E7BD1]">
-          {minutes || seconds ? minutes + ":" + seconds : ""}
+          {hours || minutes || seconds
+            ? `${hours ? `${hours}:` : ""}` + minutes + ":" + seconds
+            : ""}
         </span>
         <img src="/header/timer.png" alt="" className="h-8" />
       </div>
