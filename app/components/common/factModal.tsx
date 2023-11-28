@@ -1,9 +1,12 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
 import FactModalContainer from "./factModalContainer";
+import { useSelector } from "react-redux";
+import { RootState } from "@/app/redux/store";
 
 const FactModal = ({ setCongratsOpen }: any, ref: any) => {
   const [open, setOpen] = useState(false);
   const [factBody, setFactBody] = useState<any>();
+  const { user } = useSelector((state: RootState) => state.user);
 
   useImperativeHandle(ref, () => ({
     openModal(body: any) {
@@ -36,6 +39,21 @@ const FactModal = ({ setCongratsOpen }: any, ref: any) => {
           >
             {factBody?.txt}
           </div>
+        </div>
+        <div className="absolute bottom-0 sm:right-0 right-0 pointer-events-none">
+          {user.policeMale ? (
+            <img
+              className="w-auto h-36 sm:h-48"
+              src="/questions/malPolice.png"
+              alt=""
+            />
+          ) : (
+            <img
+              className="w-auto h-36 sm:h-48"
+              src="/questions/femPolice.png"
+              alt=""
+            />
+          )}
         </div>
       </div>
     </FactModalContainer>

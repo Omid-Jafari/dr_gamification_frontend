@@ -13,10 +13,13 @@ import ModalContainer from "../common/modalContainer";
 import SecondSigninSection from "./secondSigninSection";
 import { RootState } from "@/app/redux/store";
 import { useRouter } from "next/navigation";
+import QuestionModalContainer from "../common/questionModalContainer";
+import HelpModal from "./helpModal";
 
 const SigninContainer = () => {
   const dispatch = useDispatch();
   const [activeSection, setActiveSection] = useState(0);
+  const [openHelp, setOpenHelp] = useState(false);
   const [creatingUser, setCreatingUser] = useState<object>();
   const router = useRouter();
   const localStorageId =
@@ -60,6 +63,7 @@ const SigninContainer = () => {
         })
       );
       localStorage.setItem("UserId", res?.data?._id);
+      setOpenHelp(true);
     },
     onError: () => {},
   });
@@ -103,14 +107,20 @@ const SigninContainer = () => {
       key="secondSigninChapterKey"
     />,
   ];
+
   return (
-    <ModalContainer open={signOpen}>
-      <div className="w-full h-[100vh] flex justify-center items-center">
-        {signinFormSections?.map(
-          (comp, index) => index === activeSection && comp
-        )}
-      </div>
-    </ModalContainer>
+    <>
+      <ModalContainer open={signOpen}>
+        <div className="w-full h-[100vh] flex justify-center items-center">
+          {signinFormSections?.map(
+            (comp, index) => index === activeSection && comp
+          )}
+        </div>
+      </ModalContainer>
+      <QuestionModalContainer open={openHelp}>
+        <HelpModal setOpenHelp={setOpenHelp} />
+      </QuestionModalContainer>
+    </>
   );
 };
 

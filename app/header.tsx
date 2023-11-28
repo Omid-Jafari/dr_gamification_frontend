@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "./redux/store";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const Header = () => {
@@ -14,6 +14,8 @@ const Header = () => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const audioRef = useRef<any>();
+  const [muted, setMuted] = useState(true);
 
   const getTime = () => {
     const now = new Date().getTime();
@@ -31,13 +33,17 @@ const Header = () => {
 
     return () => clearInterval(interval);
   }, [getTime]);
-
   return (
     <div className="w-full flex items-center justify-between p-3 sm:p-5 absolute top-0 left-0">
       <button onClick={() => window.location.pathname !== "/" && router.back()}>
         <img src="/Back.svg" alt="" />
       </button>
-      <button onClick={() => {}}>
+      <button
+        onClick={() => {
+          // audioRef.current.play();
+          setMuted(!muted);
+        }}
+      >
         <img src="/Sound.svg" alt="" />
       </button>
       <Link href={"/records"}>
@@ -97,6 +103,16 @@ const Header = () => {
           />
         )}
       </div>
+      <audio
+        muted={muted}
+        src="/KidsEducation.mp3"
+        ref={audioRef}
+        loop
+        autoPlay={true}
+        playsInline={true}
+      >
+        {/* <source  type="audio/mp3" /> */}
+      </audio>
     </div>
   );
 };

@@ -24,6 +24,7 @@ const Results = () => {
   const [activeSection, setActiveSection] = useState(0);
   const [questsAnswers, setQuestsAnswers] = useState<any>({});
   const [ageAndGender, setAgeAndGender] = useState<any>({});
+  const [lastSecOpen, setLastSecOpen] = useState(false);
 
   const finishedQuestionsQuery = useQuery({
     queryKey: ["finishedQuestionsQuery"],
@@ -51,13 +52,18 @@ const Results = () => {
 
   const closeResultFunc = () => {
     setOpen(false);
+    setLastSecOpen(false);
     setTimeout(() => {
       router.push("/");
     }, 1500);
   };
   const handleNextModal = (data: any, isLast = false) => {
-    if (activeSection === 9) {
+    if (activeSection === 8) {
       // addUserMutation.mutate({ ...creatingUser, ...data });
+      setTimeout(() => {
+        setActiveSection(activeSection + 1);
+        setLastSecOpen(open);
+      }, 250);
     } else {
       setTimeout(() => {
         setActiveSection(activeSection + 1);
@@ -100,7 +106,6 @@ const Results = () => {
       },
     });
   };
-  console.log("user", user);
   const resultAndQuests = [
     <Champ
       open={activeSection === 0}
@@ -172,6 +177,7 @@ const Results = () => {
       user={user}
       finishGame={finishGame}
       loading={finishedQuestionsMutation.isLoading}
+      lastSecOpen={lastSecOpen}
       key="QuestionsComp6"
     />,
   ];

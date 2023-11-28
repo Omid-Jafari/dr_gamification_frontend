@@ -7,18 +7,18 @@ const ConfirmFinish = ({
   finishGame,
   loading,
   user,
+  lastSecOpen,
 }: {
   open: boolean;
   finishGame: any;
   loading: boolean;
   user: User;
+  lastSecOpen: boolean;
 }) => {
-  const [openSection, setOpenSection] = useState(open);
-
   return (
     <div
       className={`relative bg-[url(/common/confirmBG.png)] w-full h-[100vh] bg-center bg-no-repeat bg-contain flex flex-col items-center justify-center animate__animated ${
-        openSection ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
+        lastSecOpen ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
       }`}
     >
       <form className="flex flex-col w-4/5 gap-5">

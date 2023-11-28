@@ -37,16 +37,18 @@ const Records = () => {
     >
       <img
         src="/common/ModalBlueBg.svg"
-        className={`absolute top-0 left-0 w-full h-[100vh] object-cover animate__animated animate__delay ${
+        className={`absolute top-0 left-0 w-full h-[100vh] object-cover animate__animated ${
           open
-            ? "animate__fadeIn animate__slow"
+            ? "animate__fadeIn animate__slow animate__delay"
             : "animate__fadeOut animate__fast"
         }`}
         alt=""
       />
       <div
-        className={`w-full h-[100vh] flex flex-col items-center justify-center pt-5 gap-4 animate__animated  animate__delay-1s ${
-          open ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
+        className={`w-full h-[100vh] flex flex-col items-center justify-center pt-5 gap-4 animate__animated  ${
+          open
+            ? "animate__fadeInDownBig animate__delay-1s"
+            : "animate__fadeOutUpBig"
         }`}
       >
         <button
