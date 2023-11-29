@@ -1,5 +1,13 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
-import WheelOfFortuneComp from "./wheelOfFortuneComp";
+// import WheelOfFortuneComp from "./wheelOfFortuneComp";
+import dynamic from "next/dynamic";
+
+const WheelOfFortuneComp = dynamic(
+  () => import("./wheelOfFortuneComp") as any,
+  {
+    ssr: false,
+  }
+);
 
 const WheelSpinnerModal = (
   { congratsRefOpen }: { congratsRefOpen: any },
@@ -16,6 +24,12 @@ const WheelSpinnerModal = (
       setFortune(fortune);
     },
   }));
+  const props = {
+    wheelBody: wheelBody,
+    fortune: fortune,
+    congratsRefOpen: congratsRefOpen,
+    setOpen: setOpen,
+  };
 
   return (
     <div
@@ -49,12 +63,7 @@ const WheelSpinnerModal = (
             open ? "" : ""
           }`}
         >
-          <WheelOfFortuneComp
-            wheelBody={wheelBody}
-            fortune={fortune}
-            congratsRefOpen={congratsRefOpen}
-            setOpen={setOpen}
-          />
+          <WheelOfFortuneComp {...(props as any)} />
         </div>
       </div>
     </div>
