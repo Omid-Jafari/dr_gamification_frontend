@@ -60,7 +60,7 @@ const Champ = ({
           <Image
             width={18}
             height={25}
-            src="/header/Boronz.png"
+            src="/header/boronz.png"
             alt=""
             className="object-contain"
           />
@@ -69,7 +69,7 @@ const Champ = ({
           <Image
             width={18}
             height={25}
-            src="/header/Silver.png"
+            src="/header/silver.png"
             alt=""
             className="object-contain"
           />
@@ -78,7 +78,7 @@ const Champ = ({
           <Image
             width={18}
             height={25}
-            src="/header/Gold.png"
+            src="/header/gold.png"
             alt=""
             className="object-contain"
           />
@@ -95,7 +95,7 @@ const Champ = ({
       </div>
       <div className="flex items-center gap-1 results_btn_style py-1 px-2 text-xs sm:text-sm absolute top-[34%] right-[9%]">
         امتیاز: &nbsp;{user.score}
-        <Image width={20} height={20} src="/Group.svg" alt="" />
+        <Image width={20} height={20} src="/group.svg" alt="" />
       </div>
       <div className="flex items-center gap-1 results_btn_style py-1 px-2 text-xs sm:text-sm absolute top-[34%] left-[9%]">
         زمان:

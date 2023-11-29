@@ -109,7 +109,7 @@ const Records = () => {
                     <Image
                       width={18}
                       height={25}
-                      src="/header/Boronz.png"
+                      src="/header/boronz.png"
                       alt=""
                       className="object-contain"
                     />
@@ -118,7 +118,7 @@ const Records = () => {
                     <Image
                       width={18}
                       height={25}
-                      src="/header/Silver.png"
+                      src="/header/silver.png"
                       alt=""
                       className="object-contain"
                     />
@@ -127,7 +127,7 @@ const Records = () => {
                     <Image
                       width={18}
                       height={25}
-                      src="/header/Gold.png"
+                      src="/header/gold.png"
                       alt=""
                       className="object-contain"
                     />

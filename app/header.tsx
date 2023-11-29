@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <div className="w-full flex items-center justify-between p-3 sm:p-5 absolute top-0 left-0">
       <button onClick={() => window.location.pathname !== "/" && router.back()}>
-        <img src="/Back.svg" alt="" />
+        <img src="/back.svg" alt="" />
       </button>
       <button
         onClick={() => {
@@ -44,10 +44,10 @@ const Header = () => {
           setMuted(!muted);
         }}
       >
-        <img src="/Sound.svg" alt="" />
+        <img src="/sound.svg" alt="" />
       </button>
       <Link href={"/records"}>
-        <img src="/Group.svg" alt="" />
+        <img src="/group.svg" alt="" />
       </Link>
       <div className="relative">
         <span className="absolute z-10 top-1/2 -translate-y-1/2 -translate-x-1/2 left-2/3 text-[#1E7BD1]">
@@ -73,7 +73,7 @@ const Header = () => {
           <Image
             width={18}
             height={25}
-            src="/header/Boronz.png"
+            src="/header/boronz.png"
             alt=""
             className="object-contain"
           />
@@ -81,7 +81,7 @@ const Header = () => {
           <Image
             width={18}
             height={25}
-            src="/header/Silver.png"
+            src="/header/silver.png"
             alt=""
             className="object-contain"
           />
@@ -89,7 +89,7 @@ const Header = () => {
           <Image
             width={18}
             height={25}
-            src="/header/Gold.png"
+            src="/header/gold.png"
             alt=""
             className="object-contain"
           />

@@ -38,7 +38,7 @@ const HelpModal = ({
             <span className="">روشن/خاموش</span>
           </div>
           <div className="flex items-center gap-2 bg-[#FFEEAE] p-3 rounded-[10px]">
-            <Image width={35} height={35} src="/Group.svg" alt="" />
+            <Image width={35} height={35} src="/group.svg" alt="" />
             <span className="">جدول امتیازات</span>
           </div>
           <div className="flex items-center gap-2 bg-[#FFEEAE] p-3 rounded-[10px]">
@@ -52,7 +52,7 @@ const HelpModal = ({
               <Image
                 width={18}
                 height={25}
-                src="/header/Boronz.png"
+                src="/header/boronz.png"
                 alt=""
                 className="object-contain"
               />
@@ -61,7 +61,7 @@ const HelpModal = ({
               <Image
                 width={18}
                 height={25}
-                src="/header/Silver.png"
+                src="/header/silver.png"
                 alt=""
                 className="object-contain"
               />
@@ -70,7 +70,7 @@ const HelpModal = ({
               <Image
                 width={18}
                 height={25}
-                src="/header/Gold.png"
+                src="/header/gold.png"
                 alt=""
                 className="object-contain"
               />
