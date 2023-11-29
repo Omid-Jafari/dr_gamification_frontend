@@ -19,7 +19,7 @@ const CongratsModal = (props: any, ref: any) => {
       setData(body);
       setTimeout(() => {
         openFactRef(body.fact);
-      }, 2000);
+      }, 2500);
     },
   }));
 
@@ -33,7 +33,7 @@ const CongratsModal = (props: any, ref: any) => {
       <div
         className={`w-full h-[100dvh] flex flex-col items-center justify-center gap-20 animate__animated bg-center bg-no-repeat bg-full bg-[url(/spinner/congrats.svg)] transition-all duration-[1s] ${
           open
-            ? "animate__fadeIn bg-[#57959ba7]"
+            ? "animate__tada bg-[#57959ba7]"
             : "animate__fadeOut bg-[#57959b00]"
         }`}
       >

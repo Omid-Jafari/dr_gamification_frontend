@@ -108,7 +108,7 @@ const QuestionChoices = ({
         </div>
       </div>
       {formik.errors[`score${index}`] && formik.touched[`score${index}`] && (
-        <div className="text-red-600 w-full text-sm px-3 py-2">
+        <div className="text-red-600 w-full text-sm px-3 py-2 animate__animated animate__headShake">
           {formik.errors[`score${index}`]}
         </div>
       )}

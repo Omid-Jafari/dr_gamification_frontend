@@ -67,7 +67,7 @@ const ThirdQuest = ({
             </button>
           </div>
           {formik.errors.gender && formik.touched.gender && (
-            <div className="text-red-600 w-full text-sm px-3 py-2">
+            <div className="text-red-600 w-full text-sm px-3 py-2 animate__animated animate__headShake">
               {formik.errors.gender as string}
             </div>
           )}
@@ -110,7 +110,7 @@ const ThirdQuest = ({
             </button>
           </div>
           {formik.errors.age && formik.touched.age && (
-            <div className="text-red-600 w-full text-sm px-3 py-2">
+            <div className="text-red-600 w-full text-sm px-3 py-2 animate__animated animate__headShake">
               {formik.errors.age as string}
             </div>
           )}

@@ -2,6 +2,7 @@ import { forwardRef, useImperativeHandle, useState } from "react";
 import FactModalContainer from "./factModalContainer";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/redux/store";
+import Image from "next/image";
 
 const FactModal = ({ setCongratsOpen }: any, ref: any) => {
   const [open, setOpen] = useState(false);
@@ -26,11 +27,9 @@ const FactModal = ({ setCongratsOpen }: any, ref: any) => {
             setCongratsOpen(false);
           }}
         >
-          <img
-            className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/questions/close.svg"
-            alt=""
-          />
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12">
+            <Image fill className="" src="/questions/close.svg" alt="" />
+          </div>
         </button>
         <div className="flex w-4/5 flex-col justify-center items-center gap-5">
           <img src={factBody?.imgSrc} alt="" />

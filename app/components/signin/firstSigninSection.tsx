@@ -1,8 +1,10 @@
 import { useFormik } from "formik";
+import { useState } from "react";
 import * as Yup from "yup";
 
 const FirstSigninSection = (props: any) => {
-  const { creatingUser, handleModal } = props;
+  const { backAction, open, creatingUser, handleModal } = props;
+  const [openSection, setOpenSection] = useState(open);
   const formik = useFormik({
     initialValues: {
       name: creatingUser?.name || "",
@@ -20,13 +22,25 @@ const FirstSigninSection = (props: any) => {
 
     onSubmit: (data) => {
       handleModal(data);
+      setOpenSection(false);
     },
   });
+  const checkForAnimation = () => {
+    if (openSection && !backAction) {
+      return "animate__bounceInRight";
+    } else if (openSection && backAction) {
+      return "animate__bounceInLeft";
+    } else if (!openSection && !backAction) {
+      return "animate__bounceOutLeft";
+    } else {
+      return "animate__bounceOutRight";
+    }
+  };
 
   return (
     <form
       key="FirstSigninChapterKey"
-      className={`w-[80%] flex flex-col gap-[10px] `}
+      className={`w-[80%] flex flex-col gap-[15px] animate__animated ${checkForAnimation()}`}
     >
       <fieldset className="relative">
         <input
@@ -43,7 +57,7 @@ const FirstSigninSection = (props: any) => {
           alt=""
         />
         {formik.errors.phoneNumber && formik.touched.phoneNumber && (
-          <div className="text-red-600 w-full text-sm px-3 py-2">
+          <div className="text-red-600 w-full text-sm px-3 py-2 animate__animated animate__headShake">
             {formik.errors.phoneNumber as string}
           </div>
         )}
@@ -63,14 +77,14 @@ const FirstSigninSection = (props: any) => {
           alt=""
         />
         {formik.errors.name && formik.touched.name && (
-          <div className="text-red-600 w-full text-sm px-3 py-2">
+          <div className="text-red-600 w-full text-sm px-3 py-2 animate__animated animate__headShake">
             {formik.errors.name as string}
           </div>
         )}
       </fieldset>
       <button
         type="button"
-        onClick={(e) => formik.handleSubmit()}
+        onClick={() => formik.handleSubmit()}
         className="form_btn shadow-light flex items-center justify-center gap-1"
       >
         بعدی

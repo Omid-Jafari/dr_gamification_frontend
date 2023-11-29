@@ -1,8 +1,11 @@
 import { useFormik } from "formik";
+import { useState } from "react";
 import * as Yup from "yup";
 
 const ThirdSigninSection = (props: any) => {
-  const { creatingUser, handleModal, handleBackModal } = props;
+  const { backAction, open, creatingUser, handleModal, handleBackModal } =
+    props;
+  const [openSection, setOpenSection] = useState(open);
   const formik = useFormik({
     initialValues: {
       FFriendName: creatingUser?.friends[0]?.name || "",
@@ -25,13 +28,26 @@ const ThirdSigninSection = (props: any) => {
           { name: data.TFriendName, avatarSrc: data.tAvatarSrc },
         ],
       });
+      setOpenSection(false);
     },
   });
+
+  const checkForAnimation = () => {
+    if (openSection && !backAction) {
+      return "animate__bounceInRight";
+    } else if (openSection && backAction) {
+      return "animate__bounceInLeft";
+    } else if (!openSection && !backAction) {
+      return "animate__bounceOutLeft";
+    } else {
+      return "animate__bounceOutRight";
+    }
+  };
 
   return (
     <form
       key="secondSigninChapterKey"
-      className={`w-[80%] flex flex-col gap-[10px] `}
+      className={`w-[80%] flex flex-col gap-[15px] animate__animated ${checkForAnimation()}`}
     >
       <p className="text-sm">نام سه تا از دوستات رو بنویس:</p>
       <fieldset className="relative">
@@ -49,7 +65,7 @@ const ThirdSigninSection = (props: any) => {
           alt=""
         />
         {formik.errors.FFriendName && formik.touched.FFriendName && (
-          <div className="text-red-600 w-full text-sm px-3 py-2">
+          <div className="text-red-600 w-full text-sm px-3 py-2 animate__animated animate__headShake">
             {formik.errors.FFriendName as string}
           </div>
         )}
@@ -69,7 +85,7 @@ const ThirdSigninSection = (props: any) => {
           alt=""
         />
         {formik.errors.SFriendName && formik.touched.SFriendName && (
-          <div className="text-red-600 w-full text-sm px-3 py-2">
+          <div className="text-red-600 w-full text-sm px-3 py-2 animate__animated animate__headShake">
             {formik.errors.SFriendName as string}
           </div>
         )}
@@ -89,7 +105,7 @@ const ThirdSigninSection = (props: any) => {
           alt=""
         />
         {formik.errors.TFriendName && formik.touched.TFriendName && (
-          <div className="text-red-600 w-full text-sm px-3 py-2">
+          <div className="text-red-600 w-full text-sm px-3 py-2 animate__animated animate__headShake">
             {formik.errors.TFriendName as string}
           </div>
         )}
@@ -97,15 +113,17 @@ const ThirdSigninSection = (props: any) => {
       <div className="flex justify-center items-center gap-5">
         <button
           type="button"
-          onClick={(e) => formik.handleSubmit()}
+          onClick={() => formik.handleSubmit()}
           className="form_btn shadow-light flex items-center justify-center flex-grow"
         >
           بعدی
         </button>
-
         <button
           type="button"
-          onClick={() => handleBackModal()}
+          onClick={() => {
+            setOpenSection(false);
+            handleBackModal();
+          }}
           className="form_btn_white shadow-light flex items-center justify-center flex-grow"
         >
           قبلی

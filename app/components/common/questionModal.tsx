@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import Loading from "./loading";
 import { Question } from "@/app/constant/questions/questionSchema";
+import Image from "next/image";
 
 const QuestionModal = (
   {
@@ -142,11 +143,9 @@ const QuestionModal = (
           className="absolute top-[7.5%] right-[3%]"
           onClick={() => setOpen(false)}
         >
-          <img
-            className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/questions/close.svg"
-            alt=""
-          />
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12">
+            <Image fill className="" src="/questions/close.svg" alt="" />
+          </div>
         </button>
         <div
           className={`w-[80%] max-h-[80%] overflow-auto flex flex-col gap-[20px] `}

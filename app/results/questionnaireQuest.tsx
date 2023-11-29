@@ -37,7 +37,7 @@ const QuestionnaireQuest = ({ quest, formik }: { quest: any; formik: any }) => {
         />
       </div>
       {formik.errors[quest?.name] && formik.touched[quest?.name] && (
-        <div className="text-red-600 w-full text-sm px-3">
+        <div className="text-red-600 w-full text-sm px-3 animate__animated animate__headShake">
           {formik.errors[quest?.name] as string}
         </div>
       )}

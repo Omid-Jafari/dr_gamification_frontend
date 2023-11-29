@@ -1,8 +1,11 @@
 import { useFormik } from "formik";
+import { useState } from "react";
 import * as Yup from "yup";
 
 const SecondSigninSection = (props: any) => {
-  const { creatingUser, handleModal, handleBackModal } = props;
+  const { backAction, open, creatingUser, handleModal, handleBackModal } =
+    props;
+  const [openSection, setOpenSection] = useState(open);
   const formik = useFormik({
     initialValues: {
       avatar:
@@ -53,6 +56,7 @@ const SecondSigninSection = (props: any) => {
               ],
             }
       );
+      setOpenSection(false);
     },
   });
   const toggleImage = (src: string) => {
@@ -68,10 +72,22 @@ const SecondSigninSection = (props: any) => {
     }
   };
 
+  const checkForAnimation = () => {
+    if (openSection && !backAction) {
+      return "animate__bounceInRight";
+    } else if (openSection && backAction) {
+      return "animate__bounceInLeft";
+    } else if (!openSection && !backAction) {
+      return "animate__bounceOutLeft";
+    } else {
+      return "animate__bounceOutRight";
+    }
+  };
+
   return (
     <form
       key="secondSigninChapterKey"
-      className={`w-[84%] flex flex-col gap-[10px]`}
+      className={`w-[84%] flex flex-col gap-[10px] animate__animated ${checkForAnimation()}`}
     >
       <p className="text-sm">سه تا از تصاویر رو انتخاب کن:</p>
       <div className="flex flex-wrap justify-center items-center">
@@ -235,21 +251,24 @@ const SecondSigninSection = (props: any) => {
       <div className="flex justify-center items-center gap-5">
         <button
           type="button"
-          onClick={(e) => formik.handleSubmit()}
+          onClick={() => formik.handleSubmit()}
           className="form_btn shadow-light flex items-center justify-center flex-grow"
         >
           بعدی
         </button>
         <button
           type="button"
-          onClick={() => handleBackModal()}
+          onClick={() => {
+            setOpenSection(false);
+            handleBackModal();
+          }}
           className="form_btn_white shadow-light flex items-center justify-center flex-grow"
         >
           قبلی
         </button>
       </div>
       {formik.errors.avatar && formik.touched.avatar && (
-        <div className="text-red-600 w-full text-sm px-3 py-2">
+        <div className="text-red-600 w-full text-sm px-3 py-2 animate__animated animate__headShake">
           {formik.errors.avatar as string}
         </div>
       )}

@@ -188,7 +188,7 @@ const WheelOfFortuneComp = ({
     });
     setTimeout(() => {
       setOpen(false);
-    }, 2000);
+    }, 2500);
   };
   const handleSpinClick = () => {
     if (!mustSpin) {

@@ -21,6 +21,7 @@ const SigninContainer = () => {
   const [activeSection, setActiveSection] = useState(0);
   const [openHelp, setOpenHelp] = useState(false);
   const [creatingUser, setCreatingUser] = useState<object>();
+  const [backAction, setBackAction] = useState(false);
   const router = useRouter();
   const localStorageId =
     typeof window !== "undefined" ? localStorage.getItem("UserId") : null;
@@ -69,37 +70,51 @@ const SigninContainer = () => {
   });
 
   const handleModal = (data: any, isLast = false) => {
+    setBackAction(false);
     if (isLast) {
       addUserMutation.mutate({ ...creatingUser, ...data });
     } else {
-      setActiveSection(activeSection + 1);
+      setTimeout(() => {
+        setActiveSection(activeSection + 1);
+      }, 350);
     }
     setCreatingUser((prev: object) => ({ ...prev, ...data }));
   };
   const handleBackModal = (data: any, isLast = false) => {
-    setActiveSection(activeSection - 1);
+    setBackAction(true);
+    setTimeout(() => {
+      setActiveSection(activeSection - 1);
+    }, 350);
   };
 
   const signinFormSections = [
     <FirstSigninSection
+      backAction={backAction}
+      open={activeSection === 0}
       creatingUser={creatingUser}
       handleModal={handleModal}
       handleBackModal={handleBackModal}
       key="FirstSigninChapterKey"
     />,
     <SecondSigninSection
+      backAction={backAction}
+      open={activeSection === 1}
       creatingUser={creatingUser}
       handleModal={handleModal}
       handleBackModal={handleBackModal}
       key="secondSigninChapterKey"
     />,
     <ThirdSigninSection
+      backAction={backAction}
+      open={activeSection === 2}
       creatingUser={creatingUser}
       handleModal={handleModal}
       handleBackModal={handleBackModal}
       key="secondSigninChapterKey"
     />,
     <ForthSigninSection
+      backAction={backAction}
+      open={activeSection === 3}
       creatingUser={creatingUser}
       handleModal={handleModal}
       handleBackModal={handleBackModal}

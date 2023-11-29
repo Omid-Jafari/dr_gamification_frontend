@@ -17,7 +17,7 @@ const ConfirmModalContainer = ({
     >
       <div
         className={`bg-[url(/common/confirmBG.png)] w-full h-[100dvh] bg-center bg-no-repeat bg-contain animate__animated ${
-          open ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
+          open ? "animate__rollIn" : "animate__rollOut"
         }`}
       >
         {children}

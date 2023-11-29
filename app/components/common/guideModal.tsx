@@ -5,6 +5,7 @@ import { useMutation } from "react-query";
 import { updateUser } from "@/app/api/ApiClient";
 import { updateUserScore } from "@/app/redux/user";
 import GuideModalContainer from "./guideModalContainer";
+import Image from "next/image";
 
 const GuideModal = (props: any, ref: any) => {
   const { user } = useSelector((state: RootState) => state.user);
@@ -39,11 +40,9 @@ const GuideModal = (props: any, ref: any) => {
           className="absolute top-[33%] sm:top-[29%] right-[0%]"
           onClick={() => setOpen(false)}
         >
-          <img
-            className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/questions/close.svg"
-            alt=""
-          />
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12">
+            <Image fill className="" src="/questions/close.svg" alt="" />
+          </div>
         </button>
         <div
           className={`sm:w-[80%] w-[90%] text-sm sm:text-base max-h-[80%] text-center `}

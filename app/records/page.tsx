@@ -56,11 +56,9 @@ const Records = () => {
           className="absolute top-[7.5%] right-[3%]"
           onClick={closeRecordFunc}
         >
-          <img
-            className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/questions/close.svg"
-            alt=""
-          />
+          <div className="relative w-10 h-10 sm:w-12 sm:h-12">
+            <Image fill className="" src="/questions/close.svg" alt="" />
+          </div>
         </button>
         <img
           src="/records/recordsLogo.png"
