@@ -17,7 +17,7 @@ const FactModal = ({ setCongratsOpen }: any, ref: any) => {
 
   return (
     <FactModalContainer open={open}>
-      <div className="w-full h-[100vh] flex justify-center items-center">
+      <div className="w-full h-[100dvh] flex justify-center items-center">
         <button
           type="button"
           className="absolute top-[33%] sm:top-[29%] right-[0%]"
@@ -28,7 +28,7 @@ const FactModal = ({ setCongratsOpen }: any, ref: any) => {
         >
           <img
             className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/questions/close.png"
+            src="/questions/close.svg"
             alt=""
           />
         </button>

@@ -35,7 +35,7 @@ const ThirdQuest = ({
 
   return (
     <div
-      className={`relative bg-[url(/common/biggerModalBG.png)] w-full h-[100vh] bg-no-repeat bg-top bg-[length:99%_90%] sm:bg-[length:95%_90%] flex flex-col items-center justify-center animate__animated ${
+      className={`relative bg-[url(/common/biggerModalBG.png)] w-full h-[100dvh] bg-no-repeat bg-top bg-[length:99%_90%] sm:bg-[length:95%_90%] flex flex-col items-center justify-center animate__animated ${
         openSection ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
       }`}
     >
@@ -46,7 +46,7 @@ const ThirdQuest = ({
             <button
               type="button"
               onClick={() => formik.setFieldValue("gender", 1)}
-              className={`p-2 rounded-[32px] shadow-light border ${
+              className={`p-2 rounded-[32px] shadow-light border transition-all ${
                 formik.values.gender === 1
                   ? "bg-[#C7EAEF] border-[#43B9C9]"
                   : "bg-white border-white"
@@ -57,7 +57,7 @@ const ThirdQuest = ({
             <button
               type="button"
               onClick={() => formik.setFieldValue("gender", 0)}
-              className={`p-2 rounded-[32px] shadow-light border ${
+              className={`p-2 rounded-[32px] shadow-light border transition-all ${
                 formik.values.gender === 0
                   ? "bg-[#C7EAEF] border-[#43B9C9]"
                   : "bg-white border-white"
@@ -78,7 +78,7 @@ const ThirdQuest = ({
             <button
               type="button"
               onClick={() => formik.setFieldValue("age", 0)}
-              className={`p-2 rounded-[32px] shadow-light border ${
+              className={`p-2 rounded-[32px] shadow-light border transition-all ${
                 formik.values.age === 0
                   ? "bg-[#C7EAEF] border-[#43B9C9]"
                   : "bg-white border-white"
@@ -89,7 +89,7 @@ const ThirdQuest = ({
             <button
               type="button"
               onClick={() => formik.setFieldValue("age", 1)}
-              className={`p-2 rounded-[32px] shadow-light border ${
+              className={`p-2 rounded-[32px] shadow-light border transition-all ${
                 formik.values.age === 1
                   ? "bg-[#C7EAEF] border-[#43B9C9]"
                   : "bg-white border-white"
@@ -100,7 +100,7 @@ const ThirdQuest = ({
             <button
               type="button"
               onClick={() => formik.setFieldValue("age", 2)}
-              className={`p-2 rounded-[32px] shadow-light border ${
+              className={`p-2 rounded-[32px] shadow-light border transition-all ${
                 formik.values.age === 2
                   ? "bg-[#C7EAEF] border-[#43B9C9]"
                   : "bg-white border-white"

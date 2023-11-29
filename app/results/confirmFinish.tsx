@@ -17,7 +17,7 @@ const ConfirmFinish = ({
 }) => {
   return (
     <div
-      className={`relative bg-[url(/common/confirmBG.png)] w-full h-[100vh] bg-center bg-no-repeat bg-contain flex flex-col items-center justify-center animate__animated ${
+      className={`relative bg-[url(/common/confirmBG.png)] w-full h-[100dvh] bg-center bg-no-repeat bg-contain flex flex-col items-center justify-center animate__animated ${
         lastSecOpen ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
       }`}
     >

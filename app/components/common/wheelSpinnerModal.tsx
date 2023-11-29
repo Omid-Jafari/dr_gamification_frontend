@@ -1,5 +1,4 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
-// import WheelOfFortuneComp from "./wheelOfFortuneComp";
 import dynamic from "next/dynamic";
 
 const WheelOfFortuneComp = dynamic(
@@ -33,7 +32,7 @@ const WheelSpinnerModal = (
 
   return (
     <div
-      className={`absolute top-0 left-0 w-full h-[100vh] z-20 overflow-hidden transition-all duration-[1s]  animate__animated ${
+      className={`absolute top-0 left-0 w-full h-[100dvh] z-20 overflow-hidden transition-all duration-[1s]  animate__animated ${
         open
           ? "bg-[#57959ba7] max-h-[10000px] duration-[.7s]"
           : "bg-[#57959b00] max-h-0 duration-[1.7s]"
@@ -41,7 +40,7 @@ const WheelSpinnerModal = (
     >
       <img
         src="/common/ModalBlueBg.svg"
-        className={`absolute top-0 left-0 w-full h-[100vh] object-cover animate__animated animate__delay ${
+        className={`absolute top-0 left-0 w-full h-[100dvh] object-cover animate__animated animate__delay ${
           open
             ? "animate__fadeIn animate__slow"
             : "animate__fadeOut animate__fast"
@@ -49,7 +48,7 @@ const WheelSpinnerModal = (
         alt=""
       />
       <div
-        className={`w-full h-[100vh] animate__animated ${
+        className={`w-full h-[100dvh] animate__animated ${
           open ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
         }`}
       >
@@ -59,7 +58,7 @@ const WheelSpinnerModal = (
           alt=""
         />
         <div
-          className={`w-full h-[100vh] flex flex-col items-center justify-start gap-44 absolute top-[19%] ${
+          className={`w-full h-[100dvh] flex flex-col items-center justify-start gap-44 absolute top-[19%] ${
             open ? "" : ""
           }`}
         >

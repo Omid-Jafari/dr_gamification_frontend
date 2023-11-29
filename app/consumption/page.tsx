@@ -27,7 +27,6 @@ const Consumption = () => {
   const forthQuestRef: any = useRef(null);
   const fifthQuestRef: any = useRef(null);
   const sixthQuestRef: any = useRef(null);
-  const seventhQuestRef: any = useRef(null);
   const congratsRef: any = useRef(null);
   const congratsRefOpen = (data: {}) => {
     congratsRef.current && congratsRef.current.openModal(data);
@@ -59,9 +58,6 @@ const Consumption = () => {
   const openSixthQuestRef = () => {
     sixthQuestRef.current && sixthQuestRef.current.openModal();
   };
-  const openSeventhQuestRef = () => {
-    seventhQuestRef.current && seventhQuestRef.current.openModal();
-  };
   const { user } = useSelector((state: RootState) => state.user);
 
   const checkAnswered = (questParam: string) => {
@@ -76,7 +72,7 @@ const Consumption = () => {
   };
 
   return (
-    <div className=" w-full h-[100vh] bg-[url(/consumption/consumption.jpg)] bg-no-repeat sm:bg-[length:auto_100%] bg-[length:100%_100%]">
+    <div className=" w-full h-[100dvh] bg-[url(/consumption/consumption.jpg)] bg-no-repeat sm:bg-[length:auto_100%] bg-[length:100%_100%]">
       <CongratsModal ref={congratsRef} />
       <ConfirmModal ref={confirmRef} openWheelRef={openWheelRef} />
       <GuideModal ref={guideRef} />

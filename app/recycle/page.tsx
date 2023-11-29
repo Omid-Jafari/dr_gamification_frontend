@@ -23,9 +23,6 @@ const Recycle = () => {
   const secondQuestRef: any = useRef(null);
   const thirdQuestRef: any = useRef(null);
   const forthQuestRef: any = useRef(null);
-  const fifthQuestRef: any = useRef(null);
-  const sixthQuestRef: any = useRef(null);
-  const seventhQuestRef: any = useRef(null);
   const congratsRef: any = useRef(null);
   const congratsRefOpen = (data: {}) => {
     congratsRef.current && congratsRef.current.openModal(data);
@@ -51,15 +48,6 @@ const Recycle = () => {
   const openForthQuestRef = () => {
     forthQuestRef.current && forthQuestRef.current.openModal();
   };
-  const openFifthQuestRef = () => {
-    fifthQuestRef.current && fifthQuestRef.current.openModal();
-  };
-  const openSixthQuestRef = () => {
-    sixthQuestRef.current && sixthQuestRef.current.openModal();
-  };
-  const openSeventhQuestRef = () => {
-    seventhQuestRef.current && seventhQuestRef.current.openModal();
-  };
   const { user } = useSelector((state: RootState) => state.user);
 
   const checkAnswered = (questParam: string) => {
@@ -74,7 +62,7 @@ const Recycle = () => {
   };
 
   return (
-    <div className=" w-full h-[100vh] bg-[url(/recycle/recycle.jpg)] bg-no-repeat sm:bg-[length:auto_100%] bg-[length:100%_100%]">
+    <div className=" w-full h-[100dvh] bg-[url(/recycle/recycle.jpg)] bg-no-repeat sm:bg-[length:auto_100%] bg-[length:100%_100%]">
       <CongratsModal ref={congratsRef} />
       <ConfirmModal ref={confirmRef} openWheelRef={openWheelRef} />
       <GuideModal ref={guideRef} />

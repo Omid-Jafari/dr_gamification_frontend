@@ -4,7 +4,6 @@ import { RootState } from "@/app/redux/store";
 import { useMutation } from "react-query";
 import { updateUser } from "@/app/api/ApiClient";
 import { updateUserScore } from "@/app/redux/user";
-import Loading from "./loading";
 import GuideModalContainer from "./guideModalContainer";
 
 const GuideModal = (props: any, ref: any) => {
@@ -34,7 +33,7 @@ const GuideModal = (props: any, ref: any) => {
 
   return (
     <GuideModalContainer open={open}>
-      <div className="w-full h-[100vh] flex justify-center items-center">
+      <div className="w-full h-[100dvh] flex justify-center items-center">
         <button
           type="button"
           className="absolute top-[33%] sm:top-[29%] right-[0%]"
@@ -42,7 +41,7 @@ const GuideModal = (props: any, ref: any) => {
         >
           <img
             className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/questions/close.png"
+            src="/questions/close.svg"
             alt=""
           />
         </button>

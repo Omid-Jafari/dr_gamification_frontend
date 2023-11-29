@@ -22,7 +22,7 @@ const Champ = ({
 
   return (
     <div
-      className={`relative bg-[url(/results/resultBG.png)] bg-[length:99%_65%] bg-center bg-no-repeat w-full h-[100vh] flex flex-col items-center justify-center gap-4 animate__animated ${
+      className={`relative bg-[url(/results/resultBG.png)] bg-[length:99%_65%] bg-center bg-no-repeat w-full h-[100dvh] flex flex-col items-center justify-center gap-4 animate__animated ${
         openSection
           ? "animate__fadeInDownBig animate__delay-1s"
           : "animate__fadeOutLeftBig"

@@ -1,18 +1,5 @@
 import useAxios from "./ApiServise";
 
-// export const admins = ({ filterData, status }) => {
-//   let queryArray = [];
-//   if (filterData) {
-//     queryArray.push(`search=${filterData}`);
-//   }
-//   if (status) {
-//     queryArray.push(`status=${status}`);
-//   }
-//   queryArray = queryArray.join("&");
-
-//   return useAxios.get(`/admins${queryArray === "" ? "" : `?${queryArray}`}`);
-// };
-
 export const usersData = ({ limit, id }: { limit?: number; id?: string }) => {
   let queryArray = [];
   if (limit) {

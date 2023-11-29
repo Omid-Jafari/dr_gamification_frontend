@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="w-full h-[100vh]">
+    <main className="w-full h-[100dvh]">
       <Link
         className="absolute top-[15%] w-[20%] left-[40%]"
         href="/transportation"

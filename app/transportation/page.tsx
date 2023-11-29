@@ -61,7 +61,7 @@ const Transportation = () => {
     }
   };
   return (
-    <div className=" w-full h-[100vh] bg-[url(/transportation/transportation.jpg)] bg-no-repeat sm:bg-[length:auto_100%] bg-[length:100%_100%]">
+    <div className=" w-full h-[100dvh] bg-[url(/transportation/transportation.jpg)] bg-no-repeat sm:bg-[length:auto_100%] bg-[length:100%_100%]">
       <CongratsModal ref={congratsRef} />
       <ConfirmModal ref={confirmRef} openWheelRef={openWheelRef} />
       <GuideModal ref={guideRef} />

@@ -111,7 +111,7 @@ const SigninContainer = () => {
   return (
     <>
       <ModalContainer open={signOpen}>
-        <div className="w-full h-[100vh] flex justify-center items-center">
+        <div className="w-full h-[100dvh] flex justify-center items-center">
           {signinFormSections?.map(
             (comp, index) => index === activeSection && comp
           )}

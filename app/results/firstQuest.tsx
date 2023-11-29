@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useState } from "react";
 
 const FirstQuest = ({
@@ -18,7 +17,7 @@ const FirstQuest = ({
 
   return (
     <div
-      className={`relative bg-[url(/common/biggerModalBG.png)] w-full h-[100vh] bg-no-repeat bg-top bg-[length:99%_90%] sm:bg-[length:95%_90%] flex flex-col items-center justify-center animate__animated ${
+      className={`relative bg-[url(/common/biggerModalBG.png)] w-full h-[100dvh] bg-no-repeat bg-top bg-[length:99%_90%] sm:bg-[length:95%_90%] flex flex-col items-center justify-center animate__animated ${
         openSection ? "animate__fadeInDownBig" : "animate__fadeOutUpBig"
       }`}
     >

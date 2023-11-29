@@ -37,7 +37,7 @@ const ConfirmModal = ({ openWheelRef }: { openWheelRef: any }, ref: any) => {
   }));
   return (
     <ConfirmModalContainer open={open}>
-      <div className="w-full h-[100vh] flex justify-center items-center">
+      <div className="w-full h-[100dvh] flex justify-center items-center">
         <div
           className={`w-[80%] max-h-[80%] overflow-auto flex flex-col gap-[20px] `}
         >

@@ -29,7 +29,7 @@ const Records = () => {
 
   return (
     <div
-      className={`absolute top-0 left-0 w-full h-[100vh] z-20 px-2 overflow-hidden transition-all duration-[.7s] ${
+      className={`absolute top-0 left-0 w-full h-[100dvh] z-20 px-2 overflow-hidden transition-all duration-[.7s] ${
         open
           ? "bg-[#57959ba7] max-h-[10000px] duration-[.7s]"
           : "bg-[#57959b00] max-h-0 duration-[1.7s]"
@@ -37,7 +37,7 @@ const Records = () => {
     >
       <img
         src="/common/ModalBlueBg.svg"
-        className={`absolute top-0 left-0 w-full h-[100vh] object-cover animate__animated ${
+        className={`absolute top-0 left-0 w-full h-[100dvh] object-cover animate__animated ${
           open
             ? "animate__fadeIn animate__slow animate__delay"
             : "animate__fadeOut animate__fast"
@@ -45,7 +45,7 @@ const Records = () => {
         alt=""
       />
       <div
-        className={`w-full h-[100vh] flex flex-col items-center justify-center pt-5 gap-4 animate__animated  ${
+        className={`w-full h-[100dvh] flex flex-col items-center justify-center pt-5 gap-4 animate__animated  ${
           open
             ? "animate__fadeInDownBig animate__delay-1s"
             : "animate__fadeOutUpBig"
@@ -58,7 +58,7 @@ const Records = () => {
         >
           <img
             className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/questions/close.png"
+            src="/questions/close.svg"
             alt=""
           />
         </button>

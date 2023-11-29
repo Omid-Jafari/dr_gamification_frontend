@@ -7,7 +7,7 @@ const HelpModal = ({
   setOpenHelp: Dispatch<SetStateAction<boolean>>;
 }) => {
   return (
-    <div className="w-full h-[100vh] flex justify-center items-center text-sm">
+    <div className="w-full h-[100dvh] flex justify-center items-center text-sm">
       <button
         type="button"
         className="absolute top-[7.5%] right-[3%]"
@@ -15,7 +15,7 @@ const HelpModal = ({
       >
         <img
           className="w-10 h-10 sm:w-12 sm:h-12"
-          src="/questions/close.png"
+          src="/questions/close.svg"
           alt=""
         />
       </button>

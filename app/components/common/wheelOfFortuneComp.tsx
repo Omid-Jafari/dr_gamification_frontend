@@ -18,81 +18,11 @@ const WheelOfFortuneComp = ({
   setOpen: any;
 }) => {
   let data: any = [];
-  // fortune
-  //   ? data.push([
-  //       {
-  //         option: "0",
-  //         image: { uri: "/spinner/option0.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#FF001E", textColor: "#fff" },
-  //       },
-  //       {
-  //         option: "160",
-  //         image: { uri: "/spinner/option1.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#00A200", textColor: "#fff" },
-  //       },
-  //       {
-  //         option: "30",
-  //         image: { uri: "/spinner/option2.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#00AEFF", textColor: "#fff" },
-  //       },
-  //       {
-  //         option: "20",
-  //         image: { uri: "/spinner/option3.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#FF9D00", textColor: "#fff" },
-  //       },
-  //       {
-  //         option: "440",
-  //         image: { uri: "/spinner/option4.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#8504FF", textColor: "#fff" },
-  //       },
-  //       {
-  //         option: "200",
-  //         image: { uri: "/spinner/option5.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#0047D0", textColor: "#fff" },
-  //       },
-  //       {
-  //         option: "-100",
-  //         image: { uri: "/spinner/option6.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#B97100", textColor: "#fff" },
-  //       },
-  //       {
-  //         option: "-40",
-  //         image: { uri: "/spinner/option7.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#6AD000", textColor: "#fff" },
-  //       },
-  //       {
-  //         option: "-80",
-  //         image: { uri: "/spinner/option8.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#FFDA00", textColor: "#fff" },
-  //       },
-  //     ])
-  //   : data.push([
-  //       {
-  //         option: "0",
-  //         image: { uri: "/spinner/option0.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#FF001E", textColor: "#fff" },
-  //       },
-  //       {
-  //         option: "160",
-  //         image: { uri: "/spinner/option1.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#00A200", textColor: "#fff" },
-  //       },
-  //       {
-  //         option: "30",
-  //         image: { uri: "/spinner/option2.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#00AEFF", textColor: "#fff" },
-  //       },
-  //       {
-  //         option: "20",
-  //         image: { uri: "/spinner/option3.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#FF9D00", textColor: "#fff" },
-  //       },
-  //       {
-  //         option: "440",
-  //         image: { uri: "/spinner/option4.svg", offsetY: 200 },
-  //         style: { backgroundColor: "#8504FF", textColor: "#fff" },
-  //       },
-  //     ]);
+  const [mustSpin, setMustSpin] = useState(false);
+  const [prizeNumber, setPrizeNumber] = useState(0);
+  const dispatch = useDispatch();
+  const { user } = useSelector((state: RootState) => state.user);
+
   if (fortune) {
     data = [
       {
@@ -228,11 +158,6 @@ const WheelOfFortuneComp = ({
       txt: "یکی از راه‌های کمک به محیط‌‌زیست استفاده از انرژِ‌های تجدید‌پذیر است. استفاده از پنل‌های خورشیدی در ساختمان‌ها باعث کاهش انتشار گازهای گلخانه‌ای و آلودگی می‌شود.",
     },
   ];
-
-  const [mustSpin, setMustSpin] = useState(false);
-  const [prizeNumber, setPrizeNumber] = useState(0);
-  const dispatch = useDispatch();
-  const { user } = useSelector((state: RootState) => state.user);
 
   const updateUserMutation = useMutation({
     mutationKey: ["updateUserMutation"],
