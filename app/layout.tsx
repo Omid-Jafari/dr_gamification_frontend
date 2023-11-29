@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={
           // inter.className +
-          " w-full h-[100dvh] flex justify-center overflow-hidden font-Iransans"
+          " w-full h-[100dvh] flex justify-center overflow-hidden font-Iransans text-[#0A0A0A]"
         }
       >
         <div className="relative w-full sm:w-auto">
