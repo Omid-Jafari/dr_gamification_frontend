@@ -27,7 +27,7 @@ const FirstSigninSection = (props: any) => {
   });
   const checkForAnimation = () => {
     if (openSection && !backAction) {
-      return "animate__bounceInRight";
+      return "";
     } else if (openSection && backAction) {
       return "animate__bounceInLeft";
     } else if (!openSection && !backAction) {

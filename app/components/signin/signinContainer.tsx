@@ -48,6 +48,8 @@ const SigninContainer = () => {
       );
       toast.success(`${data?.data?.name} خوش آمدید`);
       setSignOpen(false);
+      setCreatingUser({});
+      setActiveSection(0);
     },
     onError: (error) => {
       localStorage.removeItem("UserId");

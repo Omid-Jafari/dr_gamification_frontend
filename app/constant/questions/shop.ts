@@ -142,17 +142,17 @@ export const seventhQuest: Question = {
     {
       choiceTxt: "دو جفت کفش ارزان رو بدون توجه به کیفیت آن میخره.",
       choiceImg: "/questions/shop/seventhQuest/twoPaire.png",
-      answer: 1,
+      answer: 0,
     },
     {
       choiceTxt: " یک جفت کفش با کیفیت میخره.",
       choiceImg: "/questions/shop/seventhQuest/good.png",
-      answer: 0,
+      answer: 1,
     },
     {
       choiceTxt: "یک جفت کفش مد روز رو میخره.",
       choiceImg: "/questions/shop/seventhQuest/fashion.png",
-      answer: 1,
+      answer: 0,
     },
   ],
   guide:
