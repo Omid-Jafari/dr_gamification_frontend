@@ -24,7 +24,7 @@ const ConfirmFinish = ({
       <form className="flex flex-col w-4/5 gap-5">
         <p className="">
           {user.firstTimeResult && user.secondCreatedAt
-            ? "ممنونم که بازی کردی.رو دکمه ی اتمام بازی بزن تا پاسخ هات ثبت بشن و تو قرعه کشی شرکت کنی"
+            ? "ممنونم که بازی کردی، رو دکمه ی اتمام بازی بزن تا پاسخ هات ثبت بشن و تو قرعه کشی شرکت کنی"
             : "دوست داری یه بار دیگه بازی کنی تا امتیاز بیشتری به دست بیاری و شانست برای بردن جایزه بیشتر بشه؟"}
         </p>
         <div className="flex justify-center items-center gap-5">

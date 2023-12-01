@@ -73,7 +73,7 @@ const Records = () => {
               جدول امتیازات
             </p>
           </div>
-          <div className="w-[94%] flex flex-col rounded-b-[16px] overflow-hidden record_table_rows text-white text-xs">
+          <div className="w-[94%] flex flex-col rounded-b-[16px] overflow-auto record_table_rows text-white text-xs max-h-[70dvh]">
             <div className="w-full grid grid-cols-11 gap-x-2 items-end px-3 py-5">
               <span className="col-span-1">رتبه</span>
               <span className="col-span-4">نام کاربری</span>

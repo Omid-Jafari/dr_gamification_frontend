@@ -25,8 +25,7 @@ export const fristQuest: Question = {
     " آماده کردن لیست خرید از قبل  و اجاره‌ی وسایل می‌تواند به کاهش خرید کمک کنه.",
 };
 export const secondQuest: Question = {
-  questionText:
-    "کدام گزینه برای رفتن به فروشگاه با توجه به محیط زیست مناسبتر هست؟",
+  questionText: "برای صبحانه شیر تمام شده ... .",
   chices: [
     {
       choiceTxt: "در همان لحظه برای خرید شیر به فروشگاه میره.",

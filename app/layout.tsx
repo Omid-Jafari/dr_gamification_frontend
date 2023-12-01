@@ -12,6 +12,22 @@ export const metadata: Metadata = {
   title: "DR Gamification",
   description:
     "A game which tries to prove that kids learn much more when they're playing.",
+  openGraph: {
+    type: "website",
+    url: "https://drgamification.com",
+    title: "DR Gamification",
+    description:
+      "DR Gamification is a game which is trying to prove that kids will learn much more when they're playing games.",
+    siteName: "DR Gamification",
+    images: [
+      {
+        url: "https://drgamification.com/thumb.png",
+        width: 1800,
+        height: 1600,
+        alt: "DR gamification logo",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

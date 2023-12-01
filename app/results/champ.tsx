@@ -28,25 +28,28 @@ const Champ = ({
           : "animate__fadeOutLeftBig"
       }`}
     >
-      {user.policeMale ? (
-        <img
-          src="/PoliceMan.png"
-          className="sm:w-28 sm:h-28 w-24 h-24 absolute left-1/2 -translate-x-1/2 top-[17.5%]"
-          alt=""
-        />
-      ) : (
-        <img
-          src="/policeWoman.png"
-          className="sm:w-28 sm:h-28 w-24 h-24 absolute left-1/2 -translate-x-1/2 top-[17.5%]"
-          alt=""
-        />
-      )}
-      <p
-        className="absolute left-1/2 -translate-x-1/2 top-[29.5%] text-white font-bold text-sm max-w-[6rem] truncate sm:max-w-[7rem]"
-        title={user.name}
-      >
-        {user.name}
-      </p>
+      <div className=" absolute left-1/2 -translate-x-1/2 top-[17.5%] flex flex-col justify-center items-center gap-1">
+        {user.policeMale ? (
+          <img
+            src="/PoliceMan.png"
+            className="sm:w-28 sm:h-28 w-24 h-24"
+            alt=""
+          />
+        ) : (
+          <img
+            src="/policeWoman.png"
+            className="sm:w-28 sm:h-28 w-24 h-24"
+            alt=""
+          />
+        )}
+        <p
+          className="text-white font-bold text-sm max-w-[6rem] truncate sm:max-w-[7rem]"
+          title={user.name}
+        >
+          {user.name}
+        </p>
+      </div>
+
       <p className="absolute right-[10%] top-[27%] text-xs sm:text-sm">
         <span className="font-bold">امتیازات</span>
         <br />

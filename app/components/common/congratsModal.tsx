@@ -42,7 +42,7 @@ const CongratsModal = (props: any, ref: any) => {
         ) : data?.score >= 0 ? (
           <img className="w-[70%]" src="/congrats/congrats.svg" alt="" />
         ) : (
-          <img className="w-[70%]" src="/congrats/antiCongrats.svg" alt="" />
+          <img className="w-[70%]" src="/congrats/anticongrats.svg" alt="" />
         )}
         <img className="max-w-[26%]" src="/congrats/coin.png" alt="" />
         <p dir="ltr" className="text-white font-bold text-6xl">

@@ -90,15 +90,18 @@ const QuestionModal = (
                 friends: [
                   {
                     ...user.friends[0],
-                    score: user.friends[0].score + data.score0,
+                    score:
+                      user.friends[0].score + (data.score0 === 50 ? 10 : -10),
                   },
                   {
                     ...user.friends[1],
-                    score: user.friends[1].score + data.score1,
+                    score:
+                      user.friends[1].score + (data.score1 === 50 ? 10 : -10),
                   },
                   {
                     ...user.friends[2],
-                    score: user.friends[2].score + data.score2,
+                    score:
+                      user.friends[2].score + (data.score2 === 50 ? 10 : -10),
                   },
                 ],
               },
@@ -117,15 +120,18 @@ const QuestionModal = (
                 friends: [
                   {
                     ...user.friends[0],
-                    score: user.friends[0].score + data.score0,
+                    score:
+                      user.friends[0].score + (data.score0 === 50 ? 10 : -10),
                   },
                   {
                     ...user.friends[1],
-                    score: user.friends[1].score + data.score1,
+                    score:
+                      user.friends[1].score + (data.score1 === 50 ? 10 : -10),
                   },
                   {
                     ...user.friends[2],
-                    score: user.friends[2].score + data.score2,
+                    score:
+                      user.friends[2].score + (data.score2 === 50 ? 10 : -10),
                   },
                 ],
               },

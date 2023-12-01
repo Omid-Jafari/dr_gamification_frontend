@@ -39,7 +39,7 @@ export const secondQuest: Question = {
     {
       choiceTxt: " از بسته‌بندی‌های یکبار مصرف استفاده می‍‌کنه.",
       choiceImg: "/questions/consumption/secQuest/onePack.png",
-      answer: 1,
+      answer: 0,
     },
   ],
   guide:
@@ -128,12 +128,12 @@ export const sixthQuest: Question = {
     {
       choiceTxt: " از دما و روش مناسب برای شستشوی لباس‌ها استفاده می‌کنه .",
       choiceImg: "/questions/consumption/sixthQuest/wash.png",
-      answer: 0,
+      answer: 1,
     },
     {
       choiceTxt: "معمولا بعد از هر بار استفاده لباس‌ها رو میشوره.",
       choiceImg: "/questions/consumption/sixthQuest/veryWash.png",
-      answer: 1,
+      answer: 0,
     },
   ],
   guide:
