@@ -59,6 +59,12 @@ const Header = () => {
             setMuted(!muted);
           }}
         >
+          <div
+            className={`transition-all bg-red-600 h-[2px] rotate-45 origin-top-left relative top-1 left-1 ${
+              !muted ? "w-0" : "w-full"
+            }`}
+          ></div>
+
           <img src="/sound.svg" alt="" />
         </button>
         <Link href={"/records"}>

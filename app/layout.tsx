@@ -55,7 +55,7 @@ export default function RootLayout({
                 alt="homePageBG icon"
                 className={`w-full sm:w-auto h-[100dvh] sm:object-contain object-fill`}
               />
-              <div className="absolute w-full top-0 left-0 overflow-hidden">
+              <div className="absolute w-full top-0 left-0">
                 <Header />
 
                 {children}

@@ -55,7 +55,7 @@ const SideBar = ({
     <>
       <SideBarConfirm logOutFunc={logOutFunc} ref={logoutConfirmRef} />
       <div
-        className={`w-full h-[100dvh] z-40 flex justify-end transition-all duration-1000 absolute left-0 top-0 ${
+        className={`w-full h-[100dvh] z-40 flex justify-end transition-all duration-1000 absolute left-0 top-0 overflow-hidden ${
           showMenu ? "bg-[#57959ba7] max-h-[10000px]" : "bg-[#57959b00] max-h-0"
         }`}
       >
@@ -65,7 +65,7 @@ const SideBar = ({
           }`}
         >
           <div className="w-full flex items-center p-2 sm:p-5 h-[48px] gap-2">
-            <div className="sm:w-28 sm:h-28 w-10 h-10 relative">
+            <div className="sm:w-12 sm:h-12 w-10 h-10 relative">
               {user.policeMale ? (
                 <Image fill src="/PoliceMan.png" alt="" />
               ) : (
