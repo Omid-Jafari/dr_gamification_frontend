@@ -55,7 +55,7 @@ const Header = () => {
         </button>
         <button
           onClick={() => {
-            // audioRef.current.play();
+            audioRef.current.play();
             setMuted(!muted);
           }}
         >
