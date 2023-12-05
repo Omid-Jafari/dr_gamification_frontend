@@ -37,7 +37,7 @@ export const secondQuest: Question = {
       answer: 1,
     },
     {
-      choiceTxt: " از بسته‌بندی‌های یکبار مصرف استفاده می‍‌کنه.",
+      choiceTxt: " از بسته‌بندی‌های یکبار مصرف استفاده میکنه.",
       choiceImg: "/questions/consumption/secQuest/onePack.png",
       answer: 0,
     },

@@ -40,11 +40,11 @@ export const secondQuest: Question = {
     {
       choiceTxt: "  مصرف شیر رو کاهش میده.",
       choiceImg: "/questions/shop/secQuest/low.png",
-      answer: 1,
+      answer: 0,
     },
   ],
   guide:
-    "برنامه‌ريزي براي خريد مانند تهیه‌ي يك ليست خريد هفتگي و كاهش مصرف مي‌تواند به محيط‌زيست كمك كنه.",
+    "با برنامه‌ريزي براي خريد مانند تهیه‌ي يك ليست خريد هفتگي مي‌توانیم به محيط‌زيست كمك کنیم.",
 };
 export const thirdQuest: Question = {
   questionText: "موقع خريد، ... .",

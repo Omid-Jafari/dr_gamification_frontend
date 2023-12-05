@@ -80,6 +80,7 @@ const QuestionModal = (
                   ...user.questions,
                   {
                     name: whichQuest,
+                    question: question?.questionText,
                     answers: [
                       newArray[visibleQuests[0]],
                       newArray[visibleQuests[1]],
@@ -91,17 +92,29 @@ const QuestionModal = (
                   {
                     ...user.friends[0],
                     score:
-                      user.friends[0].score + (data.score0 === 50 ? 10 : -10),
+                      user.friends[0].score +
+                      (question.chices[visibleQuests.findIndex((q) => q === 0)]
+                        .answer === 1
+                        ? 10
+                        : -10),
                   },
                   {
                     ...user.friends[1],
                     score:
-                      user.friends[1].score + (data.score1 === 50 ? 10 : -10),
+                      user.friends[1].score +
+                      (question.chices[visibleQuests.findIndex((q) => q === 1)]
+                        .answer === 1
+                        ? 10
+                        : -10),
                   },
                   {
                     ...user.friends[2],
                     score:
-                      user.friends[2].score + (data.score2 === 50 ? 10 : -10),
+                      user.friends[2].score +
+                      (question.chices[visibleQuests.findIndex((q) => q === 2)]
+                        .answer === 1
+                        ? 10
+                        : -10),
                   },
                 ],
               },
@@ -110,6 +123,7 @@ const QuestionModal = (
                   ...user.questions,
                   {
                     name: whichQuest,
+                    question: question?.questionText,
                     answers: [
                       newArray[visibleQuests[0]],
                       newArray[visibleQuests[1]],
@@ -141,6 +155,7 @@ const QuestionModal = (
       }
     },
   });
+
   return (
     <QuestionModalContainer open={open}>
       <div className="w-full h-[100dvh] flex justify-center items-center">

@@ -2,7 +2,7 @@ import { Question } from "./questionSchema";
 
 export const fristQuest: Question = {
   questionText:
-    "کدام گزینه برای رفتن به فروشگاه با توجه به محیط زیست مناسبتر است؟",
+    "کدوم گزینه برای رفتن به فروشگاه با توجه به محیط زیست مناسبتر هست؟",
   chices: [
     {
       choiceTxt: "با دوچرخه به فروشگاه میره.",
@@ -24,7 +24,7 @@ export const fristQuest: Question = {
 };
 export const secondQuest: Question = {
   questionText:
-    "کدام گزینه برای رفتن به فروشگاه با توجه به محیط زیست مناسبتر هست؟",
+    "کدوم گزینه برای رفتن به فروشگاه با توجه به محیط زیست مناسبتر هست؟",
   chices: [
     {
       choiceTxt: "با سرعت کمتری رانندگی می‌کنه.",
@@ -46,7 +46,7 @@ export const secondQuest: Question = {
 };
 export const thirdQuest: Question = {
   questionText:
-    "برای رفتن به فروشگاه با ماشین شخصی انتخاب کدام مسیر آسیب کمتری به محیط‌ زیست وارد می‌کنه؟",
+    "برای رفتن به فروشگاه با ماشین شخصی انتخاب کدوم مسیر آسیب کمتری به محیط‌ زیست وارد می‌کنه؟",
   chices: [
     {
       choiceTxt: "کوتاه ترین مسیر را انتخاب می‌کنه.",
@@ -69,7 +69,7 @@ export const thirdQuest: Question = {
 };
 export const forthQuest: Question = {
   questionText:
-    "بهترین روش برای رفتن به فروشگاه همراه با پدربزرگ خود کدام است؟",
+    "بهترین روش برای رفتن به فروشگاه همراه با پدربزرگ خود کدوم هست؟",
   chices: [
     {
       choiceTxt: "با استفاده از خودروی پدربزرگ به فروشگاه میره.",
