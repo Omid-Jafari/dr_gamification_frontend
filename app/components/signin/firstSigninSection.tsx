@@ -47,7 +47,14 @@ const FirstSigninSection = (props: any) => {
           className="bg-[#fff] outline-none w-full h-[50px] px-4 placeholder:text-[#93999D] rounded-[32px] shadow-light indent-10"
           placeholder="شماره همراه"
           name="phoneNumber"
-          onChange={formik.handleChange}
+          onChange={(e) =>
+            formik.setFieldValue(
+              "phoneNumber",
+              e.target.value.replace(/[۰-۹]/g, (d: any) =>
+                "۰۱۲۳۴۵۶۷۸۹".indexOf(d).toString()
+              )
+            )
+          }
           onBlur={formik.handleBlur}
           value={formik.values.phoneNumber}
         />

@@ -9,6 +9,7 @@ export interface UserFriends {
 }
 export interface Question {
   name: string;
+  question: string;
   answers: number[];
 }
 export interface SingleQuestionnaire {
@@ -21,7 +22,7 @@ export interface Questionnaire {
   gender: number;
   questionnaireBody: SingleQuestionnaire[];
 }
-export interface NthTimeResult {
+export interface FirstTimeResult {
   time: Date;
   correctAnswers: number;
   wrongAnswers: number;
@@ -30,9 +31,18 @@ export interface NthTimeResult {
   questions: Question[];
   questionnaire: Questionnaire;
 }
+export interface SecondTimeResult {
+  time: Date;
+  correctAnswers: number;
+  wrongAnswers: number;
+  score: number;
+  rank: number;
+  questions: Question[];
+}
 export interface User {
   _id: string;
   name: string;
+  finishedGame: boolean;
   phoneNumber: number;
   score: number;
   policeMale: number;
@@ -41,8 +51,8 @@ export interface User {
   createdAt: string;
   updatedAt: string;
   secondCreatedAt?: string;
-  firstTimeResult?: NthTimeResult;
-  secondTimeResult?: NthTimeResult;
+  firstTimeResult?: FirstTimeResult;
+  secondTimeResult?: SecondTimeResult;
 }
 export interface UserState {
   user: User;
@@ -52,6 +62,7 @@ const initialState: UserState = {
   user: {
     _id: "",
     name: "",
+    finishedGame: false,
     phoneNumber: 0,
     score: 0,
     friends: [],

@@ -15,6 +15,7 @@ import { RootState } from "@/app/redux/store";
 import { useRouter } from "next/navigation";
 import QuestionModalContainer from "../common/questionModalContainer";
 import HelpModal from "./helpModal";
+import Image from "next/image";
 
 const SigninContainer = () => {
   const dispatch = useDispatch();
@@ -31,10 +32,10 @@ const SigninContainer = () => {
     setSignOpen(!localStorageId);
   }, [localStorageId]);
   useEffect(() => {
-    if (user.questions.length === 21) {
+    if (user.questions.length === 21 && !user.finishedGame) {
       router.push("/results");
     }
-  }, [user.questions, router]);
+  }, [user.questions, user.finishedGame, router]);
   const getUserDataQuery = useQuery({
     queryKey: ["getUserDataQuery"],
     queryFn: () => userData(localStorageId),
@@ -120,7 +121,7 @@ const SigninContainer = () => {
       creatingUser={creatingUser}
       handleModal={handleModal}
       handleBackModal={handleBackModal}
-      isLoading={getUserDataQuery?.isLoading}
+      isLoading={addUserMutation?.isLoading}
       key="secondSigninChapterKey"
     />,
   ];
@@ -132,6 +133,9 @@ const SigninContainer = () => {
           {signinFormSections?.map(
             (comp, index) => index === activeSection && comp
           )}
+          <div className="absolute bottom-[1%] left-1/2 -translate-x-1/2 w-[50%] h-32">
+            <Image fill objectFit="contain" src="/uniLogo.svg" alt="" />
+          </div>
         </div>
       </ModalContainer>
       <QuestionModalContainer open={openHelp}>

@@ -1,14 +1,17 @@
 import Image from "next/image";
 import { useState } from "react";
+import { User } from "../redux/user";
 
 const Champ = ({
   open,
   user,
   handleNextModal,
+  closeResultFunc,
 }: {
   open: boolean;
-  user: any;
-  handleNextModal: any;
+  user: User;
+  handleNextModal: (data: any, isLast?: boolean) => void;
+  closeResultFunc: () => void;
 }) => {
   const [openSection, setOpenSection] = useState(open);
   let sortedFriends = user?.friends
@@ -193,13 +196,26 @@ const Champ = ({
       >
         {sortedFriends[2]?.score} امتیاز
       </span>
-      <button
-        type="button"
-        onClick={closeSection}
-        className="w-1/2 spinner_btn shadow-light flex items-center justify-center gap-1 absolute left-1/2 -translate-x-1/2 bottom-[10%]"
-      >
-        شروع پرسشنامه
-      </button>
+      {!!user.secondTimeResult ? (
+        <button
+          type="button"
+          onClick={() => {
+            setOpenSection(false);
+            closeResultFunc();
+          }}
+          className="w-1/2 spinner_btn shadow-light flex items-center justify-center gap-1 absolute left-1/2 -translate-x-1/2 bottom-[10%]"
+        >
+          اتمام بازی
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={closeSection}
+          className="w-1/2 spinner_btn shadow-light flex items-center justify-center gap-1 absolute left-1/2 -translate-x-1/2 bottom-[10%]"
+        >
+          شروع پرسشنامه
+        </button>
+      )}
     </div>
   );
 };

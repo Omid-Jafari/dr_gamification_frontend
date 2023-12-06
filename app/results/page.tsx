@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useMutation, useQuery } from "react-query";
-import { finishedQuestions, usersData } from "../api/ApiClient";
+import { finishAndResetGame, finishedQuestions } from "../api/ApiClient";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
@@ -42,7 +42,7 @@ const Results = () => {
   });
   const finishedQuestionsMutation = useMutation({
     mutationKey: ["finishedQuestionsMutation"],
-    mutationFn: finishedQuestions,
+    mutationFn: finishAndResetGame,
     onSuccess: (data) => {
       dispatch(updateUserScore({ ...data.data }));
       closeResultFunc();
@@ -112,6 +112,7 @@ const Results = () => {
       user={user}
       key="champscompo"
       handleNextModal={handleNextModal}
+      closeResultFunc={closeResultFunc}
     />,
     <FirstQuest
       open={activeSection === 1}
@@ -173,8 +174,6 @@ const Results = () => {
       questionnaire={[questionnaire[12], questionnaire[13], questionnaire[14]]}
     />,
     <ConfirmFinish
-      open={activeSection === 9}
-      user={user}
       finishGame={finishGame}
       loading={finishedQuestionsMutation.isLoading}
       lastSecOpen={lastSecOpen}

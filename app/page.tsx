@@ -12,7 +12,6 @@ export default function Home() {
       questLength
     );
   };
-
   return (
     <main className="w-full h-[100dvh]">
       {checkForFinished("trans", 4) ? undefined : (

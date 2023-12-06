@@ -25,6 +25,15 @@ export const updateUser = ({ _id, body }: { _id: string; body: object }) => {
 };
 export const finishedQuestions = ({
   _id,
+  body,
+}: {
+  _id: string;
+  body: object;
+}) => {
+  return useAxios.patch(`/finished/${_id}`, body);
+};
+export const finishAndResetGame = ({
+  _id,
   reset = false,
   body,
 }: {
@@ -32,5 +41,8 @@ export const finishedQuestions = ({
   reset?: boolean;
   body: object;
 }) => {
-  return useAxios.patch(`/finished/${_id}${reset ? "?reset=true" : ""}`, body);
+  return useAxios.patch(
+    `/finishAndResetGame/${_id}${reset ? "?reset=true" : ""}`,
+    body
+  );
 };

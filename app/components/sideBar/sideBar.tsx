@@ -60,6 +60,10 @@ const SideBar = ({
         }`}
       >
         <div
+          className="flex-1 h-[100dvh]"
+          onClick={() => setShowMenu(false)}
+        ></div>
+        <div
           className={`w-[70%] h-[100dvh] bg-[#FFDD5C] relative transition-all duration-1000 flex flex-col p-3 gap-2 ${
             showMenu ? "left-0" : "-left-full"
           }`}
