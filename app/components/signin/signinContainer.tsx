@@ -133,7 +133,11 @@ const SigninContainer = () => {
           {signinFormSections?.map(
             (comp, index) => index === activeSection && comp
           )}
-          <div className="absolute bottom-[1%] left-1/2 -translate-x-1/2 w-[50%] h-32">
+          <div
+            className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[50%] h-32 pointer-events-none transition-all duration-500 ${
+              activeSection === 0 ? "opacity-100" : "opacity-0"
+            }`}
+          >
             <Image fill objectFit="contain" src="/uniLogo.svg" alt="" />
           </div>
         </div>

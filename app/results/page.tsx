@@ -55,7 +55,7 @@ const Results = () => {
     setLastSecOpen(false);
     setTimeout(() => {
       router.push("/");
-    }, 1500);
+    }, 1000);
   };
   const handleNextModal = (data: any, isLast = false) => {
     if (activeSection === 8) {

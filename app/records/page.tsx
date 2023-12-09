@@ -24,7 +24,7 @@ const Records = () => {
     setOpen(false);
     setTimeout(() => {
       router.push("/");
-    }, 1500);
+    }, 1000);
   };
 
   return (
