@@ -2,7 +2,7 @@ import { Question } from "./questionSchema";
 
 export const fristQuest: Question = {
   questionText:
-    "کدوم گزینه برای رفتن به فروشگاه با توجه به محیط زیست مناسبتر هست؟",
+    "کدوم وسیله ی حمل و نقل برای رفتن به فروشگاه با توجه به محیط زیست مناسبتر هست؟",
   chices: [
     {
       choiceTxt: "با دوچرخه به فروشگاه میره.",

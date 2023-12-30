@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://drgamification.com",
-    title: "رفتار پایدار زیست محیطی",
+    title: "شهر پایدار زیست محیطی",
     description:
       "یک بازی است که سعی به اثبات این دارد که یادگیری کودکان با بازی بیشتر است.",
     // title: "DR Gamification",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     siteName: "DR Gamification",
     images: [
       {
-        url: "https://drgamification.com/thumb.png",
-        width: 1800,
-        height: 1600,
+        url: "https://drgamification.com/thumb.jpg",
+        width: 750,
+        height: 1334,
         alt: "DR gamification logo",
       },
     ],

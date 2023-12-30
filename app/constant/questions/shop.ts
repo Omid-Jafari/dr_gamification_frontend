@@ -115,20 +115,20 @@ export const fifthQuest: Question = {
     "خرید کفش با برچسب سبز و ساخته شده با مواد بازیافتی و خرید کفش دست دوم با توجه به محیط‌زیست مناسبتر هست.",
 };
 export const sixthQuest: Question = {
-  questionText: "در هنگام خرید لامپ برای خانه انتخاب ... .",
+  questionText: "در هنگام خرید لامپ برای خانه , ...",
   chices: [
     {
-      choiceTxt: "چراغ‌ های خورشیدی با مصرف انرژی صفر هست.",
+      choiceTxt: "چراغ های خورشیدی با مصرف انرژی صفر رو انتخاب میکنه",
       choiceImg: "/questions/shop/sixthQuest/sun.png",
       answer: 1,
     },
     {
-      choiceTxt: " چراغ ‌های معمولی را بدون توجه مصرف انرژی آن هست.",
+      choiceTxt: " چراغ های معمولی رو بدون توجه به مصرف انرژیشون انتخاب میکنه",
       choiceImg: "/questions/shop/sixthQuest/lamp.png",
       answer: 0,
     },
     {
-      choiceTxt: "چراغ‌ های ال‌ای‌دی با مصرف انرژی کم هست.",
+      choiceTxt: "چراغ‌ های ال‌ای‌دی با مصرف انرژی کم رو انتخاب میکنه.",
       choiceImg: "/questions/shop/sixthQuest/led.png",
       answer: 1,
     },
