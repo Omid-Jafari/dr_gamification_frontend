@@ -113,6 +113,7 @@ const Results = () => {
       key="champscompo"
       handleNextModal={handleNextModal}
       closeResultFunc={closeResultFunc}
+      finishedQuestionsQuery={finishedQuestionsQuery}
     />,
     <FirstQuest
       open={activeSection === 1}

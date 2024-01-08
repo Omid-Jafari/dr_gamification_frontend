@@ -1,9 +1,9 @@
-const Loading = () => {
+const Loading = ({ className }: { className?: string }) => {
   return (
     <svg
       aria-hidden="true"
       role="status"
-      className="inline w-5 h-5 me-5 text-white animate-spin"
+      className={`inline w-5 h-5 me-5 text-white animate-spin ${className}`}
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
